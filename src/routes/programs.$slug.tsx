@@ -57,7 +57,7 @@ export const Route = createFileRoute("/programs/$slug")({
 });
 
 function ProgramDetail() {
-  const { program } = Route.useLoaderData();
+  const { program } = Route.useLoaderData() as { program: import("@/lib/programs").Program };
 
   return (
     <>
