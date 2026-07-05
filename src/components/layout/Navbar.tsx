@@ -35,8 +35,8 @@ export function Navbar() {
           : "bg-transparent",
       )}
     >
-      <div className="container-page flex h-20 items-center justify-between md:h-28">
-        <Link to="/" className="flex items-center" aria-label="GeekX United — Where Tech Minds Unite">
+      <div className="container-page flex h-20 items-start justify-between md:h-28">
+        <Link to="/" className="flex items-start pt-2" aria-label="GeekX United — Where Tech Minds Unite">
           <img
             src={logoFull.url}
             alt="GeekX United — Where Tech Minds Unite"
