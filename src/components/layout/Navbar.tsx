@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import mark from "@/assets/geekx-mark.png.asset.json";
+import logoFull from "@/assets/geekx-logo-full.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -58,7 +58,7 @@ export function Navbar() {
 
           <div
             className={cn(
-              "relative flex h-[72px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[80px] md:px-6",
+              "relative flex h-[68px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[76px] md:px-6",
               "backdrop-blur-[18px] transition-[background-color,box-shadow] duration-300",
               scrolled
                 ? "bg-[rgba(6,10,22,0.78)] shadow-[0_20px_60px_-20px_rgba(124,58,237,0.35)]"
@@ -68,22 +68,18 @@ export function Navbar() {
           >
             <Link
               to="/"
-              className="group flex shrink-0 items-center gap-2.5 outline-none"
+              className="group flex shrink-0 items-center outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
               <img
-                src={mark.url}
-                alt=""
-                width={44}
-                height={44}
-                className="block h-9 w-auto md:h-11 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.6))]"
+                src={logoFull.url}
+                alt="GeekX United"
+                width={200}
+                height={56}
+                className="block h-10 w-auto max-h-full md:h-12 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
                 draggable={false}
               />
-              <span className="font-display text-base font-bold tracking-tight text-white md:text-lg">
-                GeekX <span className="bg-gradient-to-r from-[#7C3AED] to-[#22D3EE] bg-clip-text text-transparent">United</span>
-              </span>
             </Link>
-
 
 
 
