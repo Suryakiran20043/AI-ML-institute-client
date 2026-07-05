@@ -30,7 +30,9 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 pointer-events-none"
       style={{ transform: "translateZ(0)" }}
     >
-      <div className="pointer-events-auto mx-auto mt-5 max-w-[1400px] px-4 md:px-6">
+      <div className="pointer-events-auto mx-auto mt-5 w-[calc(100%-40px)] max-w-[1280px] md:w-[calc(100%-64px)]">
+
+
         {/* Animated gradient border wrapper */}
         <div className="relative rounded-[22px] p-[1px]">
           <div
