@@ -95,7 +95,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <TrustStrip />
+      <TrustMarquee />
       <WhySection />
       <FeaturedPrograms />
       <JourneySection />
