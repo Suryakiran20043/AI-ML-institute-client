@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoFull from "@/assets/geekx-logo-full.png.asset.json";
+import mark from "@/assets/geekx-mark.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
