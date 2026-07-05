@@ -56,26 +56,29 @@ export function Navbar() {
 
           <div
             className={cn(
-              "relative flex h-16 items-center justify-between rounded-[21px] border border-white/10 px-4 md:h-[72px] md:px-6",
+              "relative flex h-[68px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[76px] md:px-6",
               "backdrop-blur-[18px] transition-[background-color,box-shadow] duration-300",
               scrolled
                 ? "bg-[rgba(6,10,22,0.78)] shadow-[0_20px_60px_-20px_rgba(124,58,237,0.35)]"
                 : "bg-[rgba(8,12,25,0.65)] shadow-[0_10px_40px_-20px_rgba(34,211,238,0.25)]",
             )}
-            style={{ willChange: "background-color, box-shadow" }}
+            style={{ willChange: "background-color, box-shadow", contain: "layout paint" }}
           >
             <Link
               to="/"
-              className="group flex items-center outline-none"
+              className="group flex shrink-0 items-center outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
               <img
                 src={logoFull.url}
                 alt="GeekX United"
-                className="h-11 w-auto md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+                width={200}
+                height={56}
+                className="block h-10 w-auto max-h-full md:h-12 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
                 draggable={false}
               />
             </Link>
+
 
 
             <nav className="hidden lg:flex items-center gap-1">
