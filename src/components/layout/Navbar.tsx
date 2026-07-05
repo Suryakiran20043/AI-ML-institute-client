@@ -58,7 +58,10 @@ export function Navbar() {
 
           <div
             className={cn(
-              "relative flex h-[68px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[76px] md:px-6",
+              "relative h-[68px] overflow-hidden rounded-[21px] border border-white/10 px-4 sm:px-6 md:h-20 md:px-8",
+              // mobile: logo left / hamburger right ; desktop: 180px | 1fr | 220px grid
+              "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4",
+              "lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:gap-6",
               "backdrop-blur-[18px] transition-[background-color,box-shadow] duration-300",
               scrolled
                 ? "bg-[rgba(6,10,22,0.78)] shadow-[0_20px_60px_-20px_rgba(124,58,237,0.35)]"
@@ -66,9 +69,10 @@ export function Navbar() {
             )}
             style={{ willChange: "background-color, box-shadow", contain: "layout paint" }}
           >
+            {/* Column 1 — Logo */}
             <Link
               to="/"
-              className="group flex shrink-0 items-center outline-none"
+              className="group flex h-full min-w-0 shrink-0 items-center outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
               <img
@@ -76,21 +80,20 @@ export function Navbar() {
                 alt="GeekX United"
                 width={200}
                 height={56}
-                className="block h-10 w-auto max-h-full md:h-12 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+                className="block h-11 w-auto max-h-full md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
                 draggable={false}
               />
             </Link>
 
-
-
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* Column 2 — Centered nav (desktop only) */}
+            <nav className="hidden lg:flex h-full items-center justify-center gap-1 xl:gap-2">
               {NAV.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   activeOptions={{ exact: item.to === "/" }}
                   className={cn(
-                    "group relative px-3.5 py-2 text-sm font-medium tracking-tight text-white/70 transition-colors duration-300",
+                    "group relative px-3 py-2 text-sm font-medium tracking-tight text-white/70 transition-colors duration-300",
                     "hover:text-white data-[status=active]:text-white",
                   )}
                 >
@@ -109,30 +112,32 @@ export function Navbar() {
               ))}
             </nav>
 
-            <div className="hidden lg:block">
+            {/* Column 3 — CTA (desktop) / Hamburger (mobile) */}
+            <div className="flex h-full items-center justify-end">
               <Button
                 asChild
                 variant="gradient"
                 size="default"
-                className="relative overflow-hidden shadow-[0_8px_30px_-8px_rgba(124,58,237,0.6)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-10px_rgba(34,211,238,0.55)]"
+                className="hidden lg:inline-flex w-full max-w-[220px] justify-center overflow-hidden shadow-[0_8px_30px_-8px_rgba(124,58,237,0.6)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-10px_rgba(34,211,238,0.55)]"
               >
                 <Link to="/contact">Book Free Consultation</Link>
               </Button>
+
+              <button
+                className={cn(
+                  "lg:hidden relative inline-flex h-11 w-11 items-center justify-center rounded-full",
+                  "border border-white/15 bg-white/[0.06] text-white backdrop-blur-md",
+                  "transition-all duration-300 hover:bg-white/10",
+                  "shadow-[0_0_20px_-6px_rgba(124,58,237,0.6)] hover:shadow-[0_0_24px_-4px_rgba(34,211,238,0.6)]",
+                )}
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                onClick={() => setOpen((v) => !v)}
+              >
+                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
 
-            <button
-              className={cn(
-                "lg:hidden relative inline-flex h-11 w-11 items-center justify-center rounded-full",
-                "border border-white/15 bg-white/[0.06] text-white backdrop-blur-md",
-                "transition-all duration-300 hover:bg-white/10",
-                "shadow-[0_0_20px_-6px_rgba(124,58,237,0.6)] hover:shadow-[0_0_24px_-4px_rgba(34,211,238,0.6)]",
-              )}
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
           </div>
         </div>
 
