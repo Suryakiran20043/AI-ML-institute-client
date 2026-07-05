@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 
@@ -28,16 +28,8 @@ function ContactPage() {
         />
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div className="space-y-6">
-            {/* TODO(client): real contact details */}
             <ContactRow icon={Mail} label="Email" value="hello@geekxunited.com" />
-            <ContactRow icon={Phone} label="Phone" value="+91 000 000 0000" />
-            <ContactRow icon={MapPin} label="Location" value="India (address TBD)" />
-            <div className="mt-4 h-64 overflow-hidden rounded-2xl border border-border bg-muted">
-              {/* TODO(client): embed real map for the office location */}
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Map placeholder
-              </div>
-            </div>
+            <ContactRow icon={Phone} label="Phone" value="+91 94931 33961" />
           </div>
           <EnquiryForm sourcePage="/contact" />
         </div>
