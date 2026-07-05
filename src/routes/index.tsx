@@ -315,7 +315,7 @@ function FlagshipCard({
         ))}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 mb-8">
         <h4 className={`font-display text-lg font-bold ${learnHeading}`}>You'll Learn</h4>
         <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
           {learn.map((item) => (
