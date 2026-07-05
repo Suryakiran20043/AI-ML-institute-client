@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Infinity as InfinityIcon } from "lucide-react";
+import logo from "@/assets/geekx-logo.png.asset.json";
 
 const SESSION_KEY = "geekx_intro_seen_v1";
 
@@ -27,39 +27,22 @@ export function SplashIntro() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy text-navy-foreground"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          {/* TODO(client): replace with uploaded logo animation (Lottie / mp4). */}
-          <motion.div
-            initial={{ scale: 0.6, opacity: 0, rotate: -20 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+          <motion.img
+            src={logo.url}
+            alt="GeekX United — Where Tech Minds Unite"
+            initial={{ scale: 0.85, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-brand shadow-glow"
-          >
-            <InfinityIcon className="h-14 w-14 text-white" strokeWidth={2.5} />
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            className="mt-6 font-display text-2xl font-bold md:text-3xl"
-          >
-            GeekX <span className="text-gradient-brand">United</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.7, duration: 0.6 }}
-            className="mt-2 text-sm text-navy-foreground/70 md:text-base"
-          >
-            Where Tech Minds Unite.
-          </motion.p>
+            className="w-64 md:w-80 h-auto"
+          />
           <button
             onClick={dismiss}
-            className="absolute bottom-8 right-8 text-xs uppercase tracking-widest text-navy-foreground/50 hover:text-navy-foreground transition-colors"
+            className="absolute bottom-8 right-8 text-xs uppercase tracking-widest text-navy/50 hover:text-navy transition-colors"
           >
             Skip Intro →
           </button>
