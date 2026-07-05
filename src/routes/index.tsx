@@ -30,13 +30,14 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GeekX United — Learn AI the practical way" },
+      { title: "GeekX United — Premium AI & Machine Learning Institute" },
       {
         name: "description",
         content:
-          "Career-focused AI, GenAI, and Cloud training with clarity-first pacing, hands-on projects, and industry mentors.",
+          "A premium AI & Machine Learning institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
       },
-      { property: "og:title", content: "GeekX United — Learn AI the practical way" },
+      { property: "og:title", content: "GeekX United — Premium AI & Machine Learning Institute" },
+      { property: "og:description", content: "Practical AI & ML programs for students and working professionals." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -68,16 +69,16 @@ const WHY = [
 ];
 
 const JOURNEY = [
-  { step: "01", title: "Clarity", desc: "Understand what AI actually is — no jargon, no hand-waving." },
-  { step: "02", title: "Skills", desc: "Learn Python, ML, GenAI, and Cloud through structured practice." },
-  { step: "03", title: "Projects", desc: "Ship 3+ real-world AI projects across the curriculum." },
-  { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land the role." },
+  { step: "01", title: "Clarity", desc: "Understand what AI & ML actually are — no jargon, no hand-waving." },
+  { step: "02", title: "Skills", desc: "Learn Python, ML, Deep Learning, and modern AI tools through structured practice." },
+  { step: "03", title: "Projects", desc: "Ship real-world AI & ML projects that become your portfolio." },
+  { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land or transition into an AI role." },
 ];
 
 const TOOLS = [
-  "Python", "PyTorch", "TensorFlow", "LangChain", "Hugging Face",
-  "OpenAI", "Pinecone", "AWS", "Docker", "Kubernetes",
-  "FastAPI", "React", "Postgres", "Git", "MLflow",
+  "Python", "NumPy", "Pandas", "scikit-learn", "PyTorch",
+  "TensorFlow", "Hugging Face", "OpenAI", "LangChain", "Jupyter",
+  "FastAPI", "Docker", "Git", "GitHub", "MLflow",
 ];
 
 const TRUST = [
