@@ -58,7 +58,7 @@ export function Navbar() {
 
           <div
             className={cn(
-              "relative flex h-[68px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[76px] md:px-6",
+              "relative flex h-[72px] items-center justify-between overflow-hidden rounded-[21px] border border-white/10 px-3 sm:px-4 md:h-[80px] md:px-6",
               "backdrop-blur-[18px] transition-[background-color,box-shadow] duration-300",
               scrolled
                 ? "bg-[rgba(6,10,22,0.78)] shadow-[0_20px_60px_-20px_rgba(124,58,237,0.35)]"
