@@ -76,14 +76,6 @@ const TOOLS = [
   "FastAPI", "Docker", "Git", "GitHub", "MLflow",
 ];
 
-const TRUST = [
-  "Live Projects",
-  "Practical Learning",
-  "Career Guidance",
-  "Interview Preparation",
-  "Resume Reviews",
-  "Industry Mentors",
-];
 
 const FAQ = [
   { q: "Who is GeekX United for?", a: "Students, working professionals, and career switchers who want to build practical AI skills that translate to real jobs." },
