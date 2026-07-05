@@ -129,6 +129,15 @@
   padding-block: 3rem;
 }
 
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@utility animate-marquee {
+  animation: marquee-x 28s linear infinite;
+  will-change: transform;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
