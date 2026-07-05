@@ -113,7 +113,7 @@ function ProgramDetail() {
                 size="lg"
                 className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
               >
-                <Link to="/contact">Book Free Consultation</Link>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
               </Button>
             </div>
           </div>
@@ -274,7 +274,7 @@ function ProgramDetail() {
 
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="gradient" size="lg">
-                <Link to="/contact">Book Free Consultation</Link>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href="#enquire">Talk to an Advisor</a>
