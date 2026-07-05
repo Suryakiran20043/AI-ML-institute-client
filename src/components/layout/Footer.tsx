@@ -45,7 +45,7 @@ export function Footer() {
                 { to: "/about", label: "About" },
                 { to: "/success-stories", label: "Success Stories" },
                 { to: "/community", label: "Community" },
-                { to: "/blog", label: "Blog" },
+                
                 { to: "/contact", label: "Contact" },
               ].map((l) => (
                 <li key={l.to}>
