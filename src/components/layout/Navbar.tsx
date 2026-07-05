@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoMark from "@/assets/geekx-mark.png.asset.json";
+import logoFull from "@/assets/geekx-logo-full.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -36,11 +36,12 @@ export function Navbar() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2.5" aria-label="GeekX United home">
-          <img src={logoMark.url} alt="" className="h-10 w-auto md:h-11" />
-          <span className="font-display text-lg font-bold tracking-tight">
-            GeekX<span className="text-gradient-brand"> United</span>
-          </span>
+        <Link to="/" className="flex items-center" aria-label="GeekX United — Where Tech Minds Unite">
+          <img
+            src={logoFull.url}
+            alt="GeekX United — Where Tech Minds Unite"
+            className="h-12 w-auto md:h-14"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
