@@ -6,12 +6,6 @@ import {
   GraduationCap,
   Users,
   CheckCircle2,
-  Code2,
-  Brain,
-  Cloud,
-  Briefcase,
-  BookOpen,
-  MessagesSquare,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,13 +24,14 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GeekX United — Learn AI the practical way" },
+      { title: "GeekX United — Premium AI & Machine Learning Institute" },
       {
         name: "description",
         content:
-          "Career-focused AI, GenAI, and Cloud training with clarity-first pacing, hands-on projects, and industry mentors.",
+          "A premium AI & Machine Learning institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
       },
-      { property: "og:title", content: "GeekX United — Learn AI the practical way" },
+      { property: "og:title", content: "GeekX United — Premium AI & Machine Learning Institute" },
+      { property: "og:description", content: "Practical AI & ML programs for students and working professionals." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -68,16 +63,16 @@ const WHY = [
 ];
 
 const JOURNEY = [
-  { step: "01", title: "Clarity", desc: "Understand what AI actually is — no jargon, no hand-waving." },
-  { step: "02", title: "Skills", desc: "Learn Python, ML, GenAI, and Cloud through structured practice." },
-  { step: "03", title: "Projects", desc: "Ship 3+ real-world AI projects across the curriculum." },
-  { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land the role." },
+  { step: "01", title: "Clarity", desc: "Understand what AI & ML actually are — no jargon, no hand-waving." },
+  { step: "02", title: "Skills", desc: "Learn Python, ML, Deep Learning, and modern AI tools through structured practice." },
+  { step: "03", title: "Projects", desc: "Ship real-world AI & ML projects that become your portfolio." },
+  { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land or transition into an AI role." },
 ];
 
 const TOOLS = [
-  "Python", "PyTorch", "TensorFlow", "LangChain", "Hugging Face",
-  "OpenAI", "Pinecone", "AWS", "Docker", "Kubernetes",
-  "FastAPI", "React", "Postgres", "Git", "MLflow",
+  "Python", "NumPy", "Pandas", "scikit-learn", "PyTorch",
+  "TensorFlow", "Hugging Face", "OpenAI", "LangChain", "Jupyter",
+  "FastAPI", "Docker", "Git", "GitHub", "MLflow",
 ];
 
 const TRUST = [
@@ -140,17 +135,17 @@ function Hero() {
             Where Tech Minds Unite
           </span>
           <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
-            Learn AI the practical way.
+            Master AI &amp; Machine Learning
             <br />
-            <span className="text-gradient-brand">Build a future-ready career.</span>
+            <span className="text-gradient-brand">the practical way.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base text-navy-foreground/75 md:text-lg">
-            GeekX United trains you in AI, GenAI, and Cloud through clarity-first curriculum,
-            hands-on projects, and mentors who've shipped real systems in production.
+            A premium AI &amp; Machine Learning institute for students and working professionals —
+            clarity-first curriculum, hands-on projects, and career-focused mentorship.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="gradient" size="xl">
-              <Link to="/programs">Explore Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
             <Button
               asChild
@@ -162,19 +157,15 @@ function Hero() {
             </Button>
           </div>
 
-          {/* Trusted-by strip — TODO(client): replace with real partners */}
+          {/* Focus areas */}
           <div className="mt-14">
             <p className="text-xs uppercase tracking-widest text-navy-foreground/50">
-              Built by professionals from
+              Two flagship programs
             </p>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-navy-foreground/60">
-              <span>Enterprise AI</span>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-navy-foreground/70">
+              <span>AI &amp; Machine Learning for Students</span>
               <span>·</span>
-              <span>Cloud & MLOps</span>
-              <span>·</span>
-              <span>Workforce Consulting</span>
-              <span>·</span>
-              <span>BFSI · Healthcare · Retail · Pharma</span>
+              <span>AI &amp; Machine Learning for Working Professionals</span>
             </div>
           </div>
         </motion.div>
@@ -234,22 +225,22 @@ function WhySection() {
 }
 
 function FeaturedPrograms() {
-  const featured = PROGRAMS.filter((p) => p.featured).slice(0, 6);
+  const featured = PROGRAMS.filter((p) => p.featured);
   return (
     <section className="section-y bg-surface-muted">
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeader
-            eyebrow="Featured Programs"
-            title="Flagship programs, career outcomes."
-            description="Six focused paths — from Python foundations to enterprise GenAI systems."
+            eyebrow="AI & ML Programs"
+            title="Two flagship programs. One clear career path."
+            description="A focused AI & Machine Learning curriculum — one path for students, one for working professionals."
             className="max-w-2xl"
           />
           <Button asChild variant="outline" size="lg">
-            <Link to="/programs">View all programs <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/programs">View both programs <ArrowRight className="h-4 w-4" /></Link>
           </Button>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {featured.map((p, i) => (
             <ProgramCard key={p.slug} program={p} index={i} />
           ))}

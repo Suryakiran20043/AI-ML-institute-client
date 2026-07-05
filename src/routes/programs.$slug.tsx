@@ -1,5 +1,18 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { CheckCircle2, Clock, Signal, ArrowRight, Wrench, GraduationCap, Briefcase } from "lucide-react";
+import {
+  CheckCircle2,
+  Clock,
+  Signal,
+  ArrowRight,
+  Wrench,
+  GraduationCap,
+  Briefcase,
+  Users,
+  Building2,
+  Video,
+  Compass,
+  Award,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
@@ -66,11 +79,11 @@ function ProgramDetail() {
         <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-brand-cyan/30 blur-3xl" />
         <div className="container-page relative section-y">
           <Link to="/programs" className="text-sm text-navy-foreground/70 hover:text-white">
-            ← All programs
+            ← All AI & ML Programs
           </Link>
           <div className="mt-6 max-w-3xl">
             <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium">
-              {program.category}
+              {program.category} · {program.audience}
             </span>
             <h1 className="mt-4 font-display text-4xl font-bold leading-tight md:text-6xl">
               {program.title}
@@ -86,7 +99,7 @@ function ProgramDetail() {
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="gradient" size="lg">
-                <a href="#enquire">Enquire now <ArrowRight className="h-4 w-4" /></a>
+                <a href="#enquire">Enquire Now <ArrowRight className="h-4 w-4" /></a>
               </Button>
               <Button
                 asChild
@@ -94,7 +107,7 @@ function ProgramDetail() {
                 size="lg"
                 className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
               >
-                <Link to="/contact">Book Consultation</Link>
+                <Link to="/contact">Book Free Consultation</Link>
               </Button>
             </div>
           </div>
@@ -109,7 +122,21 @@ function ProgramDetail() {
             </div>
 
             <div>
-              <h2 className="font-display text-2xl font-bold">Skills you'll gain</h2>
+              <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
+                <Users className="h-5 w-5 text-gradient-brand" /> Who it's for
+              </h2>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {program.whoItsFor.map((w) => (
+                  <li key={w} className="flex gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm shadow-card">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-cyan" />
+                    <span>{w}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-display text-2xl font-bold">What you'll learn</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {program.skills.map((s) => (
                   <span key={s} className="rounded-full border border-border bg-card px-3 py-1.5 text-sm">
@@ -140,9 +167,36 @@ function ProgramDetail() {
               </div>
             </div>
 
+            {program.industryUseCases && (
+              <div>
+                <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
+                  <Building2 className="h-5 w-5 text-gradient-brand" /> Industry use cases
+                </h2>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {program.industryUseCases.map((u) => (
+                    <li key={u} className="flex gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm shadow-card">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-purple" />
+                      <span>{u}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {program.liveSessions && (
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+                <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
+                  <Video className="h-5 w-5 text-gradient-brand" /> Live practical sessions
+                </h2>
+                <p className="mt-3 text-muted-foreground">{program.liveSessions}</p>
+              </div>
+            )}
+
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="font-display text-2xl font-bold">Projects</h2>
+                <h2 className="font-display text-2xl font-bold">
+                  {program.audience === "Working Professionals" ? "Portfolio projects" : "Hands-on projects"}
+                </h2>
                 <ul className="mt-4 space-y-2 text-sm">
                   {program.projects.map((p) => (
                     <li key={p} className="flex gap-2">
@@ -179,12 +233,23 @@ function ProgramDetail() {
               </ul>
             </div>
 
-            <div>
-              <h2 className="font-display text-2xl font-bold">Certificate</h2>
-              <p className="mt-2 text-muted-foreground">
-                Complete all modules and projects to earn a GeekX United certificate of completion —
-                shareable to LinkedIn and portfolio.
-              </p>
+            {(program.careerGuidance || program.careerTransition) && (
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+                <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
+                  <Compass className="h-5 w-5 text-gradient-brand" />
+                  {program.careerTransition ? "Career transition guidance" : "Career guidance"}
+                </h2>
+                <p className="mt-3 text-muted-foreground">
+                  {program.careerTransition ?? program.careerGuidance}
+                </p>
+              </div>
+            )}
+
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+              <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
+                <Award className="h-5 w-5 text-gradient-brand" /> Certificate of completion
+              </h2>
+              <p className="mt-3 text-muted-foreground">{program.certificate}</p>
             </div>
 
             <div>
@@ -199,6 +264,15 @@ function ProgramDetail() {
                   </AccordionItem>
                 ))}
               </Accordion>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Button asChild variant="gradient" size="lg">
+                <Link to="/contact">Book Free Consultation</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="#enquire">Talk to an Advisor</a>
+              </Button>
             </div>
           </div>
 

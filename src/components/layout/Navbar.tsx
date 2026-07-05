@@ -7,7 +7,7 @@ import logoMark from "@/assets/geekx-mark.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/programs", label: "Programs" },
+  { to: "/programs", label: "AI & ML Programs" },
   { to: "/about", label: "About" },
   { to: "/success-stories", label: "Success Stories" },
   { to: "/community", label: "Community" },
