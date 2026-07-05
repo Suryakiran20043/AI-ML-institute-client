@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProgramCard } from "@/components/site/ProgramCard";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { TrustMarquee } from "@/components/site/TrustMarquee";
 import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
 import {
@@ -75,14 +76,6 @@ const TOOLS = [
   "FastAPI", "Docker", "Git", "GitHub", "MLflow",
 ];
 
-const TRUST = [
-  "Live Projects",
-  "Practical Learning",
-  "Career Guidance",
-  "Interview Preparation",
-  "Resume Reviews",
-  "Industry Mentors",
-];
 
 const FAQ = [
   { q: "Who is GeekX United for?", a: "Students, working professionals, and career switchers who want to build practical AI skills that translate to real jobs." },
@@ -102,7 +95,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <TrustStrip />
+      <TrustMarquee />
       <WhySection />
       <FeaturedPrograms />
       <JourneySection />
@@ -174,22 +167,6 @@ function Hero() {
   );
 }
 
-function TrustStrip() {
-  return (
-    <section className="border-b border-border bg-surface-muted">
-      <div className="container-page py-8">
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-foreground/80">
-          {TRUST.map((t) => (
-            <li key={t} className="inline-flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-gradient-brand" />
-              {t}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
 
 function WhySection() {
   return (
