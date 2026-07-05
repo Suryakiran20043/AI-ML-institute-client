@@ -147,6 +147,17 @@
   will-change: transform;
 }
 
+@keyframes nav-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@utility animate-nav-gradient {
+  background-size: 300% 300%;
+  animation: nav-gradient 9s ease infinite;
+  will-change: background-position;
+}
+
+
 
 @layer base {
   * {
