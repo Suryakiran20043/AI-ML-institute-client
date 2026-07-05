@@ -15,6 +15,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SplashIntro } from "@/components/layout/SplashIntro";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 function NotFoundComponent() {
   return (
@@ -140,6 +141,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppButton />
       <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );
