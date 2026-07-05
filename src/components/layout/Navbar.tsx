@@ -68,19 +68,22 @@ export function Navbar() {
           >
             <Link
               to="/"
-              className="group flex shrink-0 items-center outline-none"
+              className="group flex shrink-0 items-center gap-2.5 outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
               <img
-                src={logoFull.url}
-                alt="GeekX United"
-                width={220}
-                height={64}
-                className="block h-12 w-auto max-h-full md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
-
+                src={mark.url}
+                alt=""
+                width={44}
+                height={44}
+                className="block h-9 w-auto md:h-11 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.6))]"
                 draggable={false}
               />
+              <span className="font-display text-base font-bold tracking-tight text-white md:text-lg">
+                GeekX <span className="bg-gradient-to-r from-[#7C3AED] to-[#22D3EE] bg-clip-text text-transparent">United</span>
+              </span>
             </Link>
+
 
 
 
