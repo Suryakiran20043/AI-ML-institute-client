@@ -6,7 +6,6 @@ import {
   GraduationCap,
   Users,
   CheckCircle2,
-  Briefcase,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
