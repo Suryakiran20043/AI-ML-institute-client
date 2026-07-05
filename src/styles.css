@@ -134,9 +134,19 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 @utility animate-marquee {
-  animation: marquee-x 28s linear infinite;
+  animation: marquee-x 35s linear infinite;
   will-change: transform;
 }
+
+@keyframes border-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@utility animate-border-spin {
+  animation: border-spin 6s linear infinite;
+  will-change: transform;
+}
+
 
 @layer base {
   * {
