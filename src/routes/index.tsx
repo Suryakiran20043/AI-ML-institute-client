@@ -167,22 +167,6 @@ function Hero() {
   );
 }
 
-function TrustStrip() {
-  return (
-    <section className="border-b border-border bg-surface-muted">
-      <div className="container-page py-8">
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-foreground/80">
-          {TRUST.map((t) => (
-            <li key={t} className="inline-flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-gradient-brand" />
-              {t}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
 
 function WhySection() {
   return (
