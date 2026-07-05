@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 
