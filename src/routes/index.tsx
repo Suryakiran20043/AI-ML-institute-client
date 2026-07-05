@@ -7,6 +7,17 @@ import {
   Users,
   CheckCircle2,
   ArrowRight,
+  Calendar,
+  Code2,
+  Briefcase,
+  Target,
+  Globe2,
+  Clock,
+  TrendingUp,
+  MessagesSquare,
+  Award,
+  UserCheck,
+  Gift,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -15,6 +26,9 @@ import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { TrustMarquee } from "@/components/site/TrustMarquee";
 import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
+import flagshipStudent from "@/assets/flagship-student.jpg";
+import flagshipPro from "@/assets/flagship-pro.jpg";
+
 import {
   Accordion,
   AccordionContent,
