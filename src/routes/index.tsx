@@ -411,20 +411,21 @@ function FeaturedPrograms() {
           />
         </div>
 
-        <div className="mt-10 rounded-2xl bg-slate-950/70 p-5 ring-1 ring-white/10 backdrop-blur md:p-6">
+        <div className="mt-10 rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200 md:p-6">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
             {FLAGSHIP_BENEFITS.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-purple/25 to-brand-cyan/25 ring-1 ring-white/10">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-purple to-brand-cyan shadow-[0_6px_20px_-6px_rgba(139,92,246,0.5)]">
                   <Icon className="h-5 w-5 text-white" />
                 </span>
-                <span className="text-xs font-medium leading-tight text-white/85 md:text-sm">
+                <span className="text-xs font-medium leading-tight text-foreground/85 md:text-sm">
                   {label}
                 </span>
               </div>
             ))}
           </div>
         </div>
+
 
         {/* Legacy card grid retained for SEO/data completeness — hidden visually */}
         <div className="sr-only">
