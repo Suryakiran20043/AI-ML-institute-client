@@ -330,14 +330,14 @@ function FlagshipCard({
       <Link
         to="/programs/$slug"
         params={{ slug }}
-        className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 pt-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
-        style={{ marginTop: "auto", paddingTop: "0.875rem" }}
+        className={`mt-8 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
       >
-        <span className="pt-7 -mt-7 flex items-center gap-2">View Curriculum <ArrowRight className="h-4 w-4" /></span>
+        View Curriculum <ArrowRight className="h-4 w-4" />
       </Link>
     </motion.div>
   );
 }
+
 
 
 function FeaturedPrograms() {
