@@ -40,7 +40,7 @@ export function Navbar() {
           <img
             src={logoFull.url}
             alt="GeekX United — Where Tech Minds Unite"
-            className="h-24 w-auto md:h-32 -translate-y-2 md:-translate-y-3"
+            className="h-24 w-auto md:h-32 translate-y-1 md:translate-y-2"
           />
         </Link>
 
