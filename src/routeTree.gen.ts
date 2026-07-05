@@ -13,13 +13,10 @@ import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
   id: '/success-stories',
@@ -41,11 +38,6 @@ const CommunityRoute = CommunityRouteImport.update({
   path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -61,33 +53,20 @@ const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProgramsRoute,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BlogRoute,
-} as any)
 const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ProgramsRoute,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/success-stories': typeof SuccessStoriesRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog/': typeof BlogIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -96,23 +75,18 @@ export interface FileRoutesByTo {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/success-stories': typeof SuccessStoriesRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog': typeof BlogIndexRoute
   '/programs': typeof ProgramsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/success-stories': typeof SuccessStoriesRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/programs/$slug': typeof ProgramsSlugRoute
-  '/blog/': typeof BlogIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRouteTypes {
@@ -120,14 +94,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
     | '/community'
     | '/contact'
     | '/programs'
     | '/success-stories'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog/'
     | '/programs/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -136,29 +107,23 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/success-stories'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog'
     | '/programs'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
     | '/community'
     | '/contact'
     | '/programs'
     | '/success-stories'
-    | '/blog/$slug'
     | '/programs/$slug'
-    | '/blog/'
     | '/programs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRouteWithChildren
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   ProgramsRoute: typeof ProgramsRouteWithChildren
@@ -195,13 +160,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -223,13 +181,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsIndexRouteImport
       parentRoute: typeof ProgramsRoute
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof BlogRoute
-    }
     '/programs/$slug': {
       id: '/programs/$slug'
       path: '/$slug'
@@ -237,27 +188,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsSlugRouteImport
       parentRoute: typeof ProgramsRoute
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
-    }
   }
 }
-
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-  BlogIndexRoute: typeof BlogIndexRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-  BlogIndexRoute: BlogIndexRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface ProgramsRouteChildren {
   ProgramsSlugRoute: typeof ProgramsSlugRoute
@@ -276,7 +208,6 @@ const ProgramsRouteWithChildren = ProgramsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRouteWithChildren,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   ProgramsRoute: ProgramsRouteWithChildren,
