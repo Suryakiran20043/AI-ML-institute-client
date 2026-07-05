@@ -137,7 +137,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SplashIntro />
       <Navbar />
-      <main className="min-h-[60dvh] pt-16 md:pt-20">
+      <main className="min-h-[60dvh]">
         <Outlet />
       </main>
       <Footer />
