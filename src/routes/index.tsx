@@ -7,6 +7,17 @@ import {
   Users,
   CheckCircle2,
   ArrowRight,
+  Calendar,
+  Code2,
+  Briefcase,
+  Target,
+  Globe2,
+  Clock,
+  TrendingUp,
+  MessagesSquare,
+  Award,
+  UserCheck,
+  Gift,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -15,6 +26,9 @@ import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { TrustMarquee } from "@/components/site/TrustMarquee";
 import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
+import flagshipStudent from "@/assets/flagship-student.jpg";
+import flagshipPro from "@/assets/flagship-pro.jpg";
+
 import {
   Accordion,
   AccordionContent,
@@ -201,24 +215,219 @@ function WhySection() {
   );
 }
 
-function FeaturedPrograms() {
-  const featured = PROGRAMS.filter((p) => p.featured);
+const FLAGSHIP_BENEFITS = [
+  { icon: MessagesSquare, label: "Live Doubt Solving Sessions" },
+  { icon: Award, label: "Certificate of Completion" },
+  { icon: UserCheck, label: "1:1 Mentorship & Guidance" },
+  { icon: Rocket, label: "Job Assistance & Placement Support" },
+  { icon: Gift, label: "Access to Premium AI Tools" },
+];
+
+type FlagshipCardProps = {
+  slug: string;
+  eyebrow: string;
+  title: string;
+  titleAccent: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  features: { icon: typeof Calendar; label: string }[];
+  learn: string[];
+  accent: "purple" | "cyan";
+};
+
+function FlagshipCard({
+  slug,
+  eyebrow,
+  title,
+  titleAccent,
+  description,
+  image,
+  imageAlt,
+  features,
+  learn,
+  accent,
+}: FlagshipCardProps) {
+  const isPurple = accent === "purple";
+  const ring = isPurple ? "ring-brand-purple/25" : "ring-brand-cyan/25";
+  const eyebrowBg = isPurple
+    ? "bg-brand-purple/15 text-brand-purple ring-brand-purple/30"
+    : "bg-brand-cyan/15 text-brand-cyan ring-brand-cyan/30";
+  const glow = isPurple
+    ? "from-brand-purple/25 via-brand-purple/5 to-transparent"
+    : "from-brand-cyan/25 via-brand-cyan/5 to-transparent";
+  const btn = isPurple
+    ? "bg-gradient-to-r from-brand-purple to-fuchsia-500 shadow-[0_10px_40px_-10px_theme(colors.brand.purple/70%)]"
+    : "bg-gradient-to-r from-brand-cyan to-sky-400 shadow-[0_10px_40px_-10px_theme(colors.brand.cyan/70%)]";
+  const chipIcon = isPurple ? "text-brand-purple" : "text-brand-cyan";
+  const check = isPurple ? "text-brand-purple" : "text-brand-cyan";
+
   return (
-    <section className="section-y bg-surface-muted">
-      <div className="container-page">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <SectionHeader
-            eyebrow="AI & ML Programs"
-            title="Two flagship programs. One clear career path."
-            description="A focused AI & Machine Learning curriculum — one path for students, one for working professionals."
-            className="max-w-2xl"
-          />
-          <Button asChild variant="outline" size="lg">
-            <Link to="/programs">View both programs <ArrowRight className="h-4 w-4" /></Link>
-          </Button>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`group relative overflow-hidden rounded-3xl bg-slate-950/80 p-6 ring-1 ${ring} backdrop-blur-xl md:p-8`}
+    >
+      <div className={`pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-radial ${glow} blur-3xl`} />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:32px_32px]" />
+
+      <div className="relative grid gap-6 md:grid-cols-[1.15fr_1fr] md:items-start">
+        <div>
+          <span className={`inline-flex rounded-lg px-3 py-1 text-xs font-semibold ring-1 ${eyebrowBg}`}>
+            {eyebrow}
+          </span>
+          <h3 className="mt-5 font-display text-3xl font-bold leading-tight text-white md:text-4xl">
+            {title}
+            <br />
+            <span className={isPurple ? "text-gradient-brand" : "bg-gradient-to-r from-brand-cyan to-sky-300 bg-clip-text text-transparent"}>
+              {titleAccent}
+            </span>
+          </h3>
+          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{description}</p>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {featured.map((p, i) => (
+
+        <div className="relative flex items-center justify-center">
+          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${glow} blur-2xl`} />
+          <img
+            src={image}
+            alt={imageAlt}
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="relative w-full max-w-[280px] rounded-2xl object-cover md:max-w-none"
+          />
+        </div>
+      </div>
+
+      <div className="relative mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {features.map(({ icon: Icon, label }) => (
+          <div
+            key={label}
+            className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-white/10"
+          >
+            <Icon className={`h-4 w-4 shrink-0 ${chipIcon}`} />
+            <span className="text-xs font-medium leading-tight text-white/85">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative mt-6">
+        <h4 className={`font-display text-lg font-bold ${isPurple ? "text-gradient-brand" : "bg-gradient-to-r from-brand-cyan to-sky-300 bg-clip-text text-transparent"}`}>
+          You'll Learn
+        </h4>
+        <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+          {learn.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-sm text-white/80">
+              <CheckCircle2 className={`h-4 w-4 shrink-0 ${check}`} />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link
+        to="/programs/$slug"
+        params={{ slug }}
+        className={`relative mt-7 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
+      >
+        View Curriculum <ArrowRight className="h-4 w-4" />
+      </Link>
+    </motion.div>
+  );
+}
+
+function FeaturedPrograms() {
+  return (
+    <section className="relative overflow-hidden bg-navy py-24 text-white">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-brand-purple/10 to-transparent" />
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-96 w-[80%] -translate-x-1/2 rounded-full bg-brand-cyan/10 blur-3xl" />
+
+      <div className="container-page relative">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+            Our Flagship Programs
+          </h2>
+          <p className="mt-4 text-white/70 md:text-lg">
+            Two carefully crafted programs to take you from learner to industry-ready AI professional.
+          </p>
+          <div className="mx-auto mt-6 flex items-center justify-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
+            <span className="h-1.5 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-cyan" />
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+          <FlagshipCard
+            slug="ai-ml-for-students"
+            eyebrow="For Students"
+            title="AI & Machine Learning"
+            titleAccent="for Students"
+            description="A complete program to build strong foundations, work on real projects, and kickstart your AI career."
+            image={flagshipStudent}
+            imageAlt="AI student illustration"
+            accent="purple"
+            features={[
+              { icon: Calendar, label: "6+ Months Program" },
+              { icon: Code2, label: "Hands-on Projects" },
+              { icon: Users, label: "Industry Mentorship" },
+              { icon: Target, label: "Placement Support" },
+            ]}
+            learn={[
+              "Python for AI",
+              "Generative AI",
+              "Machine Learning",
+              "Real-world Projects",
+              "Deep Learning",
+              "Deployment & MLOps",
+            ]}
+          />
+          <FlagshipCard
+            slug="ai-ml-for-professionals"
+            eyebrow="For Working Professionals"
+            title="AI & Machine Learning"
+            titleAccent="for Professionals"
+            description="Advance your career with AI skills, real-world case studies, and industry-grade projects."
+            image={flagshipPro}
+            imageAlt="AI professional illustration"
+            accent="cyan"
+            features={[
+              { icon: Calendar, label: "4+ Months Program" },
+              { icon: Globe2, label: "Real-world Use Cases" },
+              { icon: Clock, label: "Flexible Learning" },
+              { icon: TrendingUp, label: "Career Growth" },
+            ]}
+            learn={[
+              "Advanced ML & DL",
+              "MLOps & Deployment",
+              "LLM's & GenAI",
+              "Cloud & DevOps",
+              "Data Engineering",
+              "Capstone Projects",
+            ]}
+          />
+        </div>
+
+        <div className="mt-10 rounded-2xl bg-slate-950/70 p-5 ring-1 ring-white/10 backdrop-blur md:p-6">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+            {FLAGSHIP_BENEFITS.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-purple/25 to-brand-cyan/25 ring-1 ring-white/10">
+                  <Icon className="h-5 w-5 text-white" />
+                </span>
+                <span className="text-xs font-medium leading-tight text-white/85 md:text-sm">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Legacy card grid retained for SEO/data completeness — hidden visually */}
+        <div className="sr-only">
+          {PROGRAMS.filter((p) => p.featured).map((p, i) => (
             <ProgramCard key={p.slug} program={p} index={i} />
           ))}
         </div>
@@ -226,6 +435,7 @@ function FeaturedPrograms() {
     </section>
   );
 }
+
 
 function JourneySection() {
   return (
