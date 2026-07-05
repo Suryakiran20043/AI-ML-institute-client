@@ -74,9 +74,10 @@ export function Navbar() {
               <img
                 src={logoFull.url}
                 alt="GeekX United"
-                width={200}
-                height={56}
-                className="block h-10 w-auto max-h-full md:h-12 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+                width={220}
+                height={64}
+                className="block h-12 w-auto max-h-full md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+
                 draggable={false}
               />
             </Link>
