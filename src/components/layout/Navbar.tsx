@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Infinity as InfinityIcon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoMark from "@/assets/geekx-mark.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -35,10 +36,8 @@ export function Navbar() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2" aria-label="GeekX United home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand shadow-glow">
-            <InfinityIcon className="h-5 w-5 text-white" />
-          </span>
+        <Link to="/" className="flex items-center gap-2.5" aria-label="GeekX United home">
+          <img src={logoMark.url} alt="" className="h-10 w-auto md:h-11" />
           <span className="font-display text-lg font-bold tracking-tight">
             GeekX<span className="text-gradient-brand"> United</span>
           </span>
