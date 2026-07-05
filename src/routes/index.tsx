@@ -271,14 +271,14 @@ function FlagshipCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] md:p-8"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]"
     >
-      <div className="grid gap-6 md:grid-cols-[1.15fr_0.9fr] md:items-start">
-        <div>
-          <span className={`inline-flex rounded-lg px-3 py-1 text-xs font-semibold ${eyebrowBg}`}>
+      <div className="grid gap-6 md:grid-cols-[1.15fr_auto] md:items-start">
+        <div className="flex flex-col">
+          <span className={`inline-flex w-fit rounded-lg px-3 py-1 text-xs font-semibold ${eyebrowBg}`}>
             {eyebrow}
           </span>
-          <h3 className="mt-5 font-display text-3xl font-bold leading-tight text-foreground md:text-[2.4rem]">
+          <h3 className="mt-5 font-display text-3xl font-bold leading-tight text-foreground md:text-[2.2rem]">
             {title}
             <br />
             <span className={titleAccentCls}>{titleAccent}</span>
@@ -288,15 +288,15 @@ function FlagshipCard({
           </p>
         </div>
 
-        <div className="relative flex items-center justify-center">
+        <div className="relative mx-auto flex h-[220px] w-[220px] shrink-0 items-center justify-center">
           <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${imageGlow} blur-2xl`} />
           <img
             src={image}
             alt={imageAlt}
             loading="lazy"
-            width={1024}
-            height={1024}
-            className="relative w-full max-w-[260px] rounded-2xl object-cover md:max-w-none"
+            width={220}
+            height={220}
+            className="relative h-[220px] w-[220px] rounded-2xl object-cover"
           />
         </div>
       </div>
@@ -315,7 +315,7 @@ function FlagshipCard({
         ))}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 mb-8">
         <h4 className={`font-display text-lg font-bold ${learnHeading}`}>You'll Learn</h4>
         <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
           {learn.map((item) => (
@@ -330,13 +330,15 @@ function FlagshipCard({
       <Link
         to="/programs/$slug"
         params={{ slug }}
-        className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
+        className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] pt-3.5 ${btn}`}
       >
         View Curriculum <ArrowRight className="h-4 w-4" />
       </Link>
     </motion.div>
   );
 }
+
+
 
 function FeaturedPrograms() {
   return (
