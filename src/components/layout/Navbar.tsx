@@ -72,10 +72,11 @@ export function Navbar() {
               <img
                 src={logoFull.url}
                 alt="GeekX United"
-                className="h-20 w-auto md:h-24 -translate-y-1 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+                className="h-11 w-auto md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
                 draggable={false}
               />
             </Link>
+
 
             <nav className="hidden lg:flex items-center gap-1">
               {NAV.map((item) => (
