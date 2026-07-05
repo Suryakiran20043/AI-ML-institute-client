@@ -72,7 +72,11 @@ export const Route = createFileRoute("/programs/$slug")({
 function ProgramDetail() {
   const { program } = Route.useLoaderData() as { program: import("@/lib/programs").Program };
 
-  return (
+  const studentMsg = `Hi GeekX United!\n\nI'm a student and I'm interested in your AI & Machine Learning program. I'd like to book a free consultation and learn more about the course, projects, and career opportunities.\n\nPlease let me know the next steps.`;
+  const proMsg = `Hi GeekX United!\n\nI'm a working professional looking to upskill in AI & Machine Learning. I'd like to book a free consultation to understand the program, learning path, and how it can help my career.\n\nLooking forward to hearing from you.`;
+  const whatsappUrl = `https://wa.me/919493133961?text=${encodeURIComponent(
+    program.audience === "Students" ? studentMsg : proMsg
+  )}`;
     <>
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <div className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-brand-purple/40 blur-3xl" />
