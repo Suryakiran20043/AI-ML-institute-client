@@ -135,13 +135,13 @@ function Hero() {
             Where Tech Minds Unite
           </span>
           <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
-            Master AI &amp; Machine Learning
+            Learn AI the practical way.
             <br />
-            <span className="text-gradient-brand">the practical way.</span>
+            <span className="text-gradient-brand">Build a future-ready career.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base text-navy-foreground/75 md:text-lg">
-            A premium AI &amp; Machine Learning institute for students and working professionals —
-            clarity-first curriculum, hands-on projects, and career-focused mentorship.
+            GeekX United trains you in AI, GenAI, and AI&amp;ML through clarity-first curriculum,
+            hands-on projects, and mentors who've shipped real systems in production.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="gradient" size="xl">
