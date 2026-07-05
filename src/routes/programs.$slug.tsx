@@ -77,6 +77,8 @@ function ProgramDetail() {
   const whatsappUrl = `https://wa.me/919493133961?text=${encodeURIComponent(
     program.audience === "Students" ? studentMsg : proMsg
   )}`;
+
+  return (
     <>
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <div className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-brand-purple/40 blur-3xl" />
