@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProgramCard } from "@/components/site/ProgramCard";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { TrustMarquee } from "@/components/site/TrustMarquee";
 import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
 import {
