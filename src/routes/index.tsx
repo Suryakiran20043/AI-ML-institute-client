@@ -249,18 +249,21 @@ function FlagshipCard({
   accent,
 }: FlagshipCardProps) {
   const isPurple = accent === "purple";
-  const ring = isPurple ? "ring-brand-purple/25" : "ring-brand-cyan/25";
   const eyebrowBg = isPurple
-    ? "bg-brand-purple/15 text-brand-purple ring-brand-purple/30"
-    : "bg-brand-cyan/15 text-brand-cyan ring-brand-cyan/30";
-  const glow = isPurple
-    ? "from-brand-purple/25 via-brand-purple/5 to-transparent"
-    : "from-brand-cyan/25 via-brand-cyan/5 to-transparent";
-  const btn = isPurple
-    ? "bg-gradient-to-r from-brand-purple to-fuchsia-500 shadow-[0_10px_40px_-10px_theme(colors.brand.purple/70%)]"
-    : "bg-gradient-to-r from-brand-cyan to-sky-400 shadow-[0_10px_40px_-10px_theme(colors.brand.cyan/70%)]";
+    ? "bg-brand-purple/10 text-brand-purple"
+    : "bg-brand-cyan/10 text-brand-cyan";
+  const titleAccentCls = isPurple
+    ? "text-brand-purple"
+    : "text-brand-cyan";
   const chipIcon = isPurple ? "text-brand-purple" : "text-brand-cyan";
   const check = isPurple ? "text-brand-purple" : "text-brand-cyan";
+  const learnHeading = isPurple ? "text-brand-purple" : "text-brand-cyan";
+  const btn = isPurple
+    ? "bg-gradient-to-r from-brand-purple to-fuchsia-500 shadow-[0_18px_40px_-14px_oklch(0.55_0.22_300/0.6)]"
+    : "bg-gradient-to-r from-brand-cyan to-sky-400 shadow-[0_18px_40px_-14px_oklch(0.75_0.15_220/0.6)]";
+  const imageGlow = isPurple
+    ? "from-brand-purple/20 to-transparent"
+    : "from-brand-cyan/20 to-transparent";
 
   return (
     <motion.div
@@ -268,58 +271,55 @@ function FlagshipCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`group relative overflow-hidden rounded-3xl bg-slate-950/80 p-6 ring-1 ${ring} backdrop-blur-xl md:p-8`}
+      className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)] md:p-8"
     >
-      <div className={`pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-gradient-radial ${glow} blur-3xl`} />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:32px_32px]" />
-
-      <div className="relative grid gap-6 md:grid-cols-[1.15fr_1fr] md:items-start">
+      <div className="grid gap-6 md:grid-cols-[1.15fr_0.9fr] md:items-start">
         <div>
-          <span className={`inline-flex rounded-lg px-3 py-1 text-xs font-semibold ring-1 ${eyebrowBg}`}>
+          <span className={`inline-flex rounded-lg px-3 py-1 text-xs font-semibold ${eyebrowBg}`}>
             {eyebrow}
           </span>
-          <h3 className="mt-5 font-display text-3xl font-bold leading-tight text-white md:text-4xl">
+          <h3 className="mt-5 font-display text-3xl font-bold leading-tight text-foreground md:text-[2.4rem]">
             {title}
             <br />
-            <span className={isPurple ? "text-gradient-brand" : "bg-gradient-to-r from-brand-cyan to-sky-300 bg-clip-text text-transparent"}>
-              {titleAccent}
-            </span>
+            <span className={titleAccentCls}>{titleAccent}</span>
           </h3>
-          <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{description}</p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            {description}
+          </p>
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${glow} blur-2xl`} />
+          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${imageGlow} blur-2xl`} />
           <img
             src={image}
             alt={imageAlt}
             loading="lazy"
             width={1024}
             height={1024}
-            className="relative w-full max-w-[280px] rounded-2xl object-cover md:max-w-none"
+            className="relative w-full max-w-[260px] rounded-2xl object-cover md:max-w-none"
           />
         </div>
       </div>
 
-      <div className="relative mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
         {features.map(({ icon: Icon, label }) => (
           <div
             key={label}
-            className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-3 py-2.5 ring-1 ring-white/10"
+            className="flex items-center gap-2.5 rounded-xl border border-border bg-muted/40 px-3 py-2.5"
           >
             <Icon className={`h-4 w-4 shrink-0 ${chipIcon}`} />
-            <span className="text-xs font-medium leading-tight text-white/85">{label}</span>
+            <span className="text-xs font-medium leading-tight text-foreground/80">
+              {label}
+            </span>
           </div>
         ))}
       </div>
 
-      <div className="relative mt-6">
-        <h4 className={`font-display text-lg font-bold ${isPurple ? "text-gradient-brand" : "bg-gradient-to-r from-brand-cyan to-sky-300 bg-clip-text text-transparent"}`}>
-          You'll Learn
-        </h4>
+      <div className="mt-6">
+        <h4 className={`font-display text-lg font-bold ${learnHeading}`}>You'll Learn</h4>
         <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
           {learn.map((item) => (
-            <li key={item} className="flex items-center gap-2 text-sm text-white/80">
+            <li key={item} className="flex items-center gap-2 text-sm text-foreground/80">
               <CheckCircle2 className={`h-4 w-4 shrink-0 ${check}`} />
               {item}
             </li>
@@ -330,7 +330,7 @@ function FlagshipCard({
       <Link
         to="/programs/$slug"
         params={{ slug }}
-        className={`relative mt-7 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
+        className={`mt-7 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] ${btn}`}
       >
         View Curriculum <ArrowRight className="h-4 w-4" />
       </Link>
@@ -340,16 +340,16 @@ function FlagshipCard({
 
 function FeaturedPrograms() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 text-white">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-brand-purple/10 to-transparent" />
-      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-96 w-[80%] -translate-x-1/2 rounded-full bg-brand-cyan/10 blur-3xl" />
-
+    <section className="relative overflow-hidden bg-background py-24">
       <div className="container-page relative">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+          <span className="inline-flex rounded-full bg-brand-purple/10 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-widest text-brand-purple">
             Our Flagship Programs
+          </span>
+          <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            Our <span className="text-gradient-brand">Flagship Programs</span>
           </h2>
-          <p className="mt-4 text-white/70 md:text-lg">
+          <p className="mt-4 text-muted-foreground md:text-lg">
             Two carefully crafted programs to take you from learner to industry-ready AI professional.
           </p>
           <div className="mx-auto mt-6 flex items-center justify-center gap-1.5">
@@ -410,20 +410,21 @@ function FeaturedPrograms() {
           />
         </div>
 
-        <div className="mt-10 rounded-2xl bg-slate-950/70 p-5 ring-1 ring-white/10 backdrop-blur md:p-6">
+        <div className="mt-10 rounded-2xl border border-border bg-card p-5 shadow-[0_10px_40px_-20px_rgba(15,23,42,0.15)] md:p-6">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
             {FLAGSHIP_BENEFITS.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-purple/25 to-brand-cyan/25 ring-1 ring-white/10">
-                  <Icon className="h-5 w-5 text-white" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-purple/15 to-brand-cyan/15">
+                  <Icon className="h-5 w-5 text-brand-purple" />
                 </span>
-                <span className="text-xs font-medium leading-tight text-white/85 md:text-sm">
+                <span className="text-xs font-medium leading-tight text-foreground/85 md:text-sm">
                   {label}
                 </span>
               </div>
             ))}
           </div>
         </div>
+
 
         {/* Legacy card grid retained for SEO/data completeness — hidden visually */}
         <div className="sr-only">
