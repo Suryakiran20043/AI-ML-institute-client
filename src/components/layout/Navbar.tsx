@@ -138,17 +138,16 @@ export function Navbar() {
 
               <button
                 className={cn(
-                  "lg:hidden relative inline-flex h-11 w-11 items-center justify-center rounded-full",
-                  "border border-white/15 bg-white/[0.06] text-white backdrop-blur-md",
-                  "transition-all duration-300 hover:bg-white/10",
-                  "shadow-[0_0_20px_-6px_rgba(124,58,237,0.6)] hover:shadow-[0_0_24px_-4px_rgba(34,211,238,0.6)]",
+                  "lg:hidden relative inline-flex h-11 w-11 items-center justify-center rounded-md",
+                  "text-white/90 transition-colors duration-200 hover:text-white",
                 )}
                 aria-label={open ? "Close menu" : "Open menu"}
                 aria-expanded={open}
                 onClick={() => setOpen((v) => !v)}
               >
-                {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {open ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
               </button>
+
             </div>
 
           </div>
