@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoFull from "@/assets/geekx-logo-full.png.asset.json";
+import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -77,10 +77,10 @@ export function Navbar() {
             >
               <img
                 src={logoFull.url}
-                alt="GeekX United"
-                width={200}
-                height={56}
-                className="block h-11 w-auto max-h-full md:h-14 transition-[filter] duration-300 group-hover:[filter:drop-shadow(0_0_14px_rgba(124,58,237,0.55))]"
+                alt="GeekX United — Where Tech Minds Unite"
+                width={220}
+                height={60}
+                className="block h-12 w-auto max-h-full md:h-16 transition-[filter] duration-300 [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.35))_brightness(1.15)] group-hover:[filter:drop-shadow(0_0_16px_rgba(124,58,237,0.65))_brightness(1.2)]"
                 draggable={false}
               />
             </Link>
