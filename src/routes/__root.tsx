@@ -16,6 +16,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SplashIntro } from "@/components/layout/SplashIntro";
 import { Toaster } from "@/components/ui/sonner";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { ScrollToTopButton } from "@/components/site/ScrollToTopButton";
 
 function NotFoundComponent() {
   return (
