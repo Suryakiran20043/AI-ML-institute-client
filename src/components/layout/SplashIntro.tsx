@@ -5,18 +5,22 @@ import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
 const SESSION_KEY = "geekx-splash-shown";
 
 export function SplashIntro() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return !sessionStorage.getItem(SESSION_KEY);
+    } catch {
+      return true;
+    }
+  });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!visible) return;
     try {
-      if (sessionStorage.getItem(SESSION_KEY)) return;
       sessionStorage.setItem(SESSION_KEY, "1");
     } catch {
-      // ignore storage errors
+      // ignore
     }
-    setVisible(true);
-    // Prevent scroll during intro
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const t = window.setTimeout(() => setVisible(false), 2200);
@@ -24,7 +28,8 @@ export function SplashIntro() {
       window.clearTimeout(t);
       document.body.style.overflow = prev;
     };
-  }, []);
+  }, [visible]);
+
 
   return (
     <AnimatePresence>
