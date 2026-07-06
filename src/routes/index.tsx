@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+import { AnimatedCounter } from "@/components/site/AnimatedCounter";
+import { Reveal } from "@/components/site/Reveal";
+
 import {
   Sparkles,
   Rocket,
@@ -123,15 +127,36 @@ function HomePage() {
 }
 
 function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  // Parallax: background orbs drift slower/further than content
+  const orbY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
+
   return (
-    <section className="relative overflow-hidden bg-navy text-navy-foreground">
-      {/* gradient orbs */}
-      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-brand-purple/40 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-brand-cyan/30 blur-3xl" />
+    <section
+      ref={ref}
+      className="relative overflow-hidden bg-navy text-navy-foreground"
+    >
+      {/* parallax gradient orbs */}
+      <motion.div
+        style={{ y: orbY, willChange: "transform" }}
+        className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-brand-purple/40 blur-3xl"
+      />
+      <motion.div
+        style={{ y: orb2Y, willChange: "transform" }}
+        className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-brand-cyan/30 blur-3xl"
+      />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,transparent,oklch(0.22_0.05_260)_70%)]" />
 
       <div className="container-page relative section-y pt-[100px] md:pt-[100px]">
         <motion.div
+          style={{ y: contentY, opacity: contentOpacity, willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -164,6 +189,28 @@ function Hero() {
             </Button>
           </div>
 
+          {/* Animated stat counters */}
+          <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { to: 500, suffix: "+", label: "Learners Trained" },
+              { to: 50, suffix: "+", label: "Live Projects" },
+              { to: 15, suffix: "+", label: "Industry Mentors" },
+            ].map((s, i) => (
+              <Reveal
+                key={s.label}
+                index={i}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 backdrop-blur-md sm:px-5 sm:py-5"
+              >
+                <div className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+                  <AnimatedCounter to={s.to} suffix={s.suffix} className="text-gradient-brand" />
+                </div>
+                <div className="mt-1 text-[0.7rem] uppercase tracking-widest text-navy-foreground/60 sm:text-xs">
+                  {s.label}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
           {/* Focus areas */}
           <div className="mt-14">
             <p className="text-xs uppercase tracking-widest text-navy-foreground/50">
@@ -180,6 +227,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 function WhySection() {
