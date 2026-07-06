@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
+
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -17,6 +19,8 @@ const NAV = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -154,53 +158,103 @@ export function Navbar() {
         </div>
 
         {/* Mobile menu */}
-        <div
-          className={cn(
-            "lg:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out",
-            open ? "mt-3 max-h-[520px] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2",
-          )}
-          style={{ willChange: "max-height, opacity, transform" }}
-        >
-          <div className="relative rounded-[22px] p-[1px]">
-            <div
-              aria-hidden
-              className="absolute inset-0 rounded-[22px] opacity-60 animate-nav-gradient"
-              style={{
-                background:
-                  "linear-gradient(120deg, #7C3AED 0%, #22D3EE 45%, #7C3AED 100%)",
-              }}
-            />
-            <nav
-              className="relative flex flex-col gap-1 rounded-[21px] border border-white/10 bg-[rgba(8,12,25,0.85)] p-4 backdrop-blur-[18px]"
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              key="mobile-menu"
+              className="lg:hidden overflow-hidden"
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10, height: 0 }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, height: "auto" }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8, height: 0 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0.15 }
+                  : { duration: 0.32, ease: [0.22, 1, 0.36, 1] }
+              }
+              style={{ willChange: "opacity, transform, height" }}
             >
-              {NAV.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  activeOptions={{ exact: item.to === "/" }}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-xl px-3 py-2.5 text-sm font-medium text-white/75 transition-all duration-300",
-                    "hover:bg-white/[0.06] hover:text-white",
-                    "data-[status=active]:bg-white/[0.08] data-[status=active]:text-white",
-                  )}
+              <div className="mt-3 relative rounded-[22px] p-[1px]">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 rounded-[22px] opacity-60 animate-nav-gradient"
+                  style={{
+                    background:
+                      "linear-gradient(120deg, #7C3AED 0%, #22D3EE 45%, #7C3AED 100%)",
+                  }}
+                />
+                <motion.nav
+                  className="relative flex flex-col gap-1 rounded-[21px] border border-white/10 bg-[rgba(8,12,25,0.85)] p-4 backdrop-blur-[18px]"
+                  initial="hidden"
+                  animate="show"
+                  exit="hidden"
+                  variants={{
+                    hidden: {},
+                    show: {
+                      transition: reduceMotion
+                        ? {}
+                        : { staggerChildren: 0.045, delayChildren: 0.08 },
+                    },
+                  }}
                 >
-                  {item.label}
-                </Link>
-              ))}
-              <Button
-                asChild
-                variant="gradient"
-                size="lg"
-                className="mt-2 shadow-[0_8px_30px_-8px_rgba(124,58,237,0.6)]"
-              >
-                <Link to="/contact" onClick={() => setOpen(false)}>
-                  Book Free Consultation
-                </Link>
-              </Button>
-            </nav>
-          </div>
-        </div>
+                  {NAV.map((item) => (
+                    <motion.div
+                      key={item.to}
+                      variants={{
+                        hidden: reduceMotion
+                          ? { opacity: 0 }
+                          : { opacity: 0, x: -8 },
+                        show: reduceMotion
+                          ? { opacity: 1 }
+                          : {
+                              opacity: 1,
+                              x: 0,
+                              transition: { duration: 0.28, ease: "easeOut" },
+                            },
+                      }}
+                    >
+                      <Link
+                        to={item.to}
+                        activeOptions={{ exact: item.to === "/" }}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "block rounded-xl px-3 py-2.5 text-sm font-medium text-white/75 transition-colors duration-200",
+                          "hover:bg-white/[0.06] hover:text-white",
+                          "data-[status=active]:bg-white/[0.08] data-[status=active]:text-white",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    variants={{
+                      hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 6 },
+                      show: reduceMotion
+                        ? { opacity: 1 }
+                        : {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.3, ease: "easeOut" },
+                          },
+                    }}
+                  >
+                    <Button
+                      asChild
+                      variant="gradient"
+                      size="lg"
+                      className="mt-2 w-full shadow-[0_8px_30px_-8px_rgba(124,58,237,0.6)]"
+                    >
+                      <Link to="/contact" onClick={() => setOpen(false)}>
+                        Book Free Consultation
+                      </Link>
+                    </Button>
+                  </motion.div>
+                </motion.nav>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </div>
     </header>
   );
