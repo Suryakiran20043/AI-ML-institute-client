@@ -137,10 +137,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SplashIntro />
       <Navbar />
-      <main className="min-h-[60dvh] pt-20 md:pt-24">
+      <main className="min-h-[60dvh]">
         <Outlet />
       </main>
-
       <Footer />
       <WhatsAppButton />
       <Toaster richColors position="top-right" />

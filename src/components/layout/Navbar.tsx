@@ -31,10 +31,9 @@ export function Navbar() {
 
   return (
     <header
-      className="fixed left-0 right-0 top-0 w-full pointer-events-none"
-      style={{ zIndex: 9999 }}
+      className="fixed inset-x-0 top-0 z-50 pointer-events-none"
+      style={{ transform: "translateZ(0)" }}
     >
-
       <div
         className={cn(
           "pointer-events-auto mx-auto w-[calc(100%-40px)] max-w-[1280px] md:w-[calc(100%-64px)]",
