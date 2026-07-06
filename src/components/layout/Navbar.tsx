@@ -73,10 +73,10 @@ export function Navbar() {
             {/* Mobile spacer (keeps logo optically centered) */}
             <div aria-hidden className="lg:hidden" />
 
-            {/* Logo — centered on mobile, left column on desktop */}
+            {/* Logo — left on mobile & desktop */}
             <Link
               to="/"
-              className="group col-start-2 lg:col-start-1 flex h-full min-w-0 items-center justify-center lg:justify-start outline-none"
+              className="group col-start-1 flex h-full min-w-0 items-center justify-start outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
               <span className="relative inline-flex items-center overflow-hidden rounded-xl bg-white px-3 py-1.5 ring-1 ring-white/40 transition-transform duration-500 group-hover:scale-[1.04]">
@@ -96,6 +96,7 @@ export function Navbar() {
               </span>
 
             </Link>
+
 
 
             {/* Column 2 — Centered nav (desktop only) */}
