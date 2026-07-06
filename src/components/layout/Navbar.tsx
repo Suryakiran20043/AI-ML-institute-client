@@ -59,8 +59,8 @@ export function Navbar() {
           <div
             className={cn(
               "relative h-[68px] overflow-hidden rounded-[21px] border border-white/10 px-4 sm:px-6 md:h-20 md:px-8",
-              // mobile: [spacer | centered logo | hamburger] ; desktop: 180px | 1fr | 220px
-              "grid grid-cols-[44px_minmax(0,1fr)_44px] items-center gap-4",
+              // mobile: [logo | hamburger] left-aligned like klyzen ; desktop: 180px | 1fr | 220px
+              "grid grid-cols-[minmax(0,1fr)_44px] items-center gap-4",
               "lg:grid-cols-[180px_minmax(0,1fr)_220px] lg:gap-6",
               "backdrop-blur-[18px] transition-[background-color,box-shadow] duration-300",
               scrolled
@@ -69,6 +69,7 @@ export function Navbar() {
             )}
             style={{ willChange: "background-color, box-shadow", contain: "layout paint" }}
           >
+
             {/* Mobile spacer (keeps logo optically centered) */}
             <div aria-hidden className="lg:hidden" />
 
