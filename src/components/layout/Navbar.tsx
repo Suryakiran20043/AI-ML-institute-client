@@ -70,8 +70,7 @@ export function Navbar() {
             style={{ willChange: "background-color, box-shadow", contain: "layout paint" }}
           >
 
-            {/* Mobile spacer (keeps logo optically centered) */}
-            <div aria-hidden className="lg:hidden" />
+
 
             {/* Logo — left on mobile & desktop */}
             <Link
