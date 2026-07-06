@@ -164,7 +164,153 @@ export const PROGRAMS: Program[] = [
       { q: "Does this help with career transition?", a: "Absolutely — dedicated career transition coaching is part of the program." },
     ],
   },
+  {
+    slug: "zero-to-genai-agent-engineer",
+    title: "Zero to GenAI Agent Engineer",
+    tagline:
+      "Go from Python developer to GenAI Agent Engineer — build LLM apps, RAG systems, and multi-agent products in 11 weeks.",
+    category: "AI & ML",
+    level: "Intermediate",
+    duration: "11 weeks · ~12 hrs/week",
+    featured: true,
+    audience: "Working Professionals",
+    overview:
+      "An 11-week, project-based program that takes Python developers from ML fundamentals to production-ready GenAI Agent Engineers. You'll build LLM apps, RAG systems, and multi-agent products using the same stack modern AI teams use — OpenAI, Anthropic, LangChain, LangGraph, CrewAI, FastAPI, and more.",
+    whoItsFor: [
+      "Python developers moving into AI/GenAI engineering",
+      "Backend and full-stack engineers building LLM features",
+      "ML enthusiasts wanting hands-on GenAI and agent skills",
+      "Professionals targeting AI Engineer / LLM Developer roles",
+    ],
+    skills: [
+      "LLM Application Development",
+      "Prompt Engineering",
+      "Function Calling & Structured Outputs",
+      "RAG & Vector Search",
+      "AI Agents & Multi-Agent Systems",
+      "LangChain / LangGraph / CrewAI",
+      "Memory & Observability",
+      "Deployment with FastAPI & Docker",
+    ],
+    curriculum: [
+      {
+        module: "Phase 0 · ML & Deep Learning Foundations (Week 1–1.5)",
+        topics: [
+          "Machine Learning basics",
+          "Supervised & Unsupervised Learning",
+          "Neural Networks",
+          "Transformers",
+          "BERT vs GPT",
+          "Hugging Face Pipelines",
+          "Project: Sentiment Analysis Classifier",
+        ],
+      },
+      {
+        module: "Phase 1 · GenAI & Prompt Engineering (Weeks 1.5–3)",
+        topics: [
+          "How LLMs work",
+          "OpenAI & Anthropic APIs",
+          "Prompt Engineering & Few-shot prompting",
+          "Chain of Thought",
+          "JSON Outputs & Function Calling",
+          "Pydantic & Ollama",
+          "Projects: CLI Chatbot, Resume Analyzer",
+        ],
+      },
+      {
+        module: "Phase 2 · RAG — Retrieval Augmented Generation (Weeks 4–5)",
+        topics: [
+          "Embeddings & Vector Databases",
+          "ChromaDB & Pinecone",
+          "Semantic Search & Chunking",
+          "Hybrid Search",
+          "FastAPI for RAG APIs",
+          "Projects: Semantic PDF Search, Company Knowledge Base Chatbot",
+        ],
+      },
+      {
+        module: "Phase 3 · AI Agents & Multi-Agent Systems (Weeks 6–8)",
+        topics: [
+          "Function Calling & Custom Tools",
+          "ReAct Agents",
+          "LangChain & LangGraph",
+          "CrewAI & Multi-Agent Systems",
+          "Supervisor + Worker Agent patterns",
+          "Projects: Research Agent, Job Application Assistant, Planner + Coder + Critic",
+        ],
+      },
+      {
+        module: "Phase 4 · Memory & Observability (Week 9)",
+        topics: [
+          "Short-term & Long-term Memory",
+          "Redis & PostgreSQL for agent state",
+          "LangSmith & LangFuse",
+          "Prompt Caching",
+        ],
+      },
+      {
+        module: "Phase 5 · Deployment & Career Sprint (Weeks 10–11)",
+        topics: [
+          "FastAPI & Streamlit",
+          "Docker",
+          "MCP (Model Context Protocol)",
+          "Slack & GitHub Integrations",
+          "Resume Review, LinkedIn Optimization",
+          "Mock Interviews, Portfolio, Demo Video",
+        ],
+      },
+    ],
+    projects: [
+      "Sentiment Analysis Classifier (Hugging Face)",
+      "CLI Chatbot with OpenAI & Anthropic",
+      "Resume Analyzer with structured outputs",
+      "Semantic PDF Search Engine",
+      "Company Knowledge Base RAG Chatbot",
+      "Research Agent with tools",
+      "Job Application Assistant",
+      "Planner + Coder + Critic Multi-Agent System",
+      "Final Capstone: deployed GenAI Agent product",
+    ],
+    tools: [
+      "Python",
+      "OpenAI GPT-4o",
+      "Anthropic Claude",
+      "Hugging Face",
+      "Ollama",
+      "LangChain",
+      "LangGraph",
+      "CrewAI",
+      "Pydantic",
+      "ChromaDB",
+      "Pinecone",
+      "Qdrant",
+      "sentence-transformers",
+      "FastAPI",
+      "Streamlit",
+      "Docker",
+      "LangSmith",
+      "LangFuse",
+      "MCP",
+    ],
+    outcomes: [
+      "AI Engineer",
+      "LLM Application Developer",
+      "GenAI Platform Engineer",
+      "AI Automation Engineer",
+      "Prompt / AI Product Engineer",
+    ],
+    careerTransition:
+      "Resume review, LinkedIn optimization, mock interviews, portfolio and demo video coaching, and GitHub project polish to help Python developers transition confidently into GenAI roles.",
+    certificate:
+      "Earn a GeekX United Certificate of Completion — backed by a full GenAI portfolio including a deployed capstone agent product.",
+    faq: [
+      { q: "Who is this program for?", a: "Python developers or engineers with basic coding experience who want to become GenAI Agent Engineers." },
+      { q: "How much time do I need each week?", a: "Around 12 hours per week across live sessions, projects, and self-paced work over 11 weeks." },
+      { q: "Is it project-based?", a: "Yes — every phase ends with hands-on projects, culminating in a deployed capstone GenAI agent." },
+    ],
+  },
 ];
+
 
 export const CATEGORIES: Category[] = ["AI & ML"];
 
