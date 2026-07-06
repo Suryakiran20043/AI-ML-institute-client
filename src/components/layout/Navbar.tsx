@@ -78,15 +78,18 @@ export function Navbar() {
               className="group col-start-2 lg:col-start-1 flex h-full min-w-0 items-center justify-center lg:justify-start outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
-              <img
-                src={logoFull.url}
-                alt="GeekX United — Where Tech Minds Unite"
-                width={220}
-                height={60}
-                className="block h-12 w-auto max-h-full md:h-16 transition-[filter] duration-300 [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.35))_brightness(1.15)] group-hover:[filter:drop-shadow(0_0_16px_rgba(124,58,237,0.65))_brightness(1.2)]"
-                draggable={false}
-              />
+              <span className="inline-flex items-center rounded-xl bg-white px-3 py-1.5 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.4)] ring-1 ring-white/40">
+                <img
+                  src={logoFull.url}
+                  alt="GeekX United — Where Tech Minds Unite"
+                  width={220}
+                  height={60}
+                  className="block h-9 w-auto md:h-12"
+                  draggable={false}
+                />
+              </span>
             </Link>
+
 
             {/* Column 2 — Centered nav (desktop only) */}
             <nav className="hidden lg:flex h-full items-center justify-center gap-1 xl:gap-2">
