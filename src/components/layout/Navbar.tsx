@@ -78,16 +78,22 @@ export function Navbar() {
               className="group col-start-2 lg:col-start-1 flex h-full min-w-0 items-center justify-center lg:justify-start outline-none"
               aria-label="GeekX United — Where Tech Minds Unite"
             >
-              <span className="inline-flex items-center rounded-xl bg-white px-3 py-1.5 shadow-[0_4px_20px_-4px_rgba(255,255,255,0.4)] ring-1 ring-white/40">
+              <span className="relative inline-flex items-center overflow-hidden rounded-xl bg-white px-3 py-1.5 ring-1 ring-white/40 animate-logo-glow transition-transform duration-500 group-hover:scale-[1.04]">
+                {/* Shimmer sweep */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/2 animate-logo-shimmer bg-gradient-to-r from-transparent via-white/70 to-transparent mix-blend-overlay"
+                />
                 <img
                   src={logoFull.url}
                   alt="GeekX United — Where Tech Minds Unite"
                   width={220}
                   height={60}
-                  className="block h-9 w-auto md:h-12"
+                  className="relative block h-9 w-auto animate-logo-float md:h-12 transition-transform duration-500 group-hover:-rotate-1"
                   draggable={false}
                 />
               </span>
+
             </Link>
 
 
