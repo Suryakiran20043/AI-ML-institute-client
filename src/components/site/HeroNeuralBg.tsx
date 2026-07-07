@@ -37,9 +37,9 @@ export function HeroNeuralBg() {
         : 4;
     const isLowEnd = hwCores <= 4 || isSmall;
 
-    const NODE_COUNT = prefersReduced ? 0 : isSmall ? 90 : isLowEnd ? 150 : 220;
-    const LINK_DIST = isSmall ? 95 : 140;
-    const MAX_PACKETS = prefersReduced ? 0 : isSmall ? 18 : 42;
+    const NODE_COUNT = prefersReduced ? 0 : isSmall ? 40 : isLowEnd ? 150 : 220;
+    const LINK_DIST = isSmall ? 70 : 140;
+    const MAX_PACKETS = prefersReduced ? 0 : isSmall ? 8 : 42;
 
     let dpr = Math.min(window.devicePixelRatio || 1, isLowEnd ? 1.5 : 2);
     let width = 0;
