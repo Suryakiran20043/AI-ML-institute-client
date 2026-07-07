@@ -126,8 +126,9 @@
   padding-inline: 1.25rem;
 }
 @utility section-y {
-  padding-block: 3rem;
+  padding-block: 4rem;
 }
+
 
 @keyframes marquee-x {
   from { transform: translate3d(0, 0, 0); }
@@ -272,6 +273,10 @@
   * {
     border-color: var(--color-border);
   }
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -284,8 +289,18 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  p {
+    overflow-wrap: anywhere;
   }
 }
+
 
 @media (min-width: 768px) {
   .section-y {

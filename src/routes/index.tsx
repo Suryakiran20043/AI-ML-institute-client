@@ -176,19 +176,19 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
             Where Tech Minds Unite
           </span>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="mt-6 font-display text-[32px] xs:text-[36px] sm:text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
             Learn AI the practical way.
             <br />
             <span className="text-gradient-brand">Build a future-ready career.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-navy-foreground/75 md:text-lg">
+          <p className="mx-auto mt-6 w-[90%] max-w-[340px] text-base text-navy-foreground/75 sm:max-w-2xl md:text-lg">
             GeekX United trains you in AI, GenAI, and AI&amp;ML through clarity-first curriculum,
             hands-on projects, and mentors who've shipped real systems in production.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-3">
             <Magnetic>
-              <Button asChild variant="gradient" size="xl">
-                <Link to="/programs">Explore Gen AI Agent Engineer Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Button asChild variant="gradient" size="xl" className="w-full max-w-[320px] sm:w-auto">
+                <Link to="/programs" className="text-center">Explore Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
             </Magnetic>
             <Magnetic>
@@ -196,12 +196,13 @@ function Hero() {
                 asChild
                 size="xl"
                 variant="outline"
-                className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+                className="w-full max-w-[320px] sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
               >
                 <Link to="/contact">Book Free Consultation</Link>
               </Button>
             </Magnetic>
           </div>
+
 
           {/* Animated stat counters */}
           <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
@@ -347,7 +348,7 @@ function FlagshipCard({
         className="premium-card relative h-full rounded-3xl"
       >
         <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="relative z-[2] flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-shadow duration-300 group-hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]">
+        <div className="relative z-[2] flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-shadow duration-300 group-hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]">
           <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="grid gap-6 md:grid-cols-[1.15fr_auto] md:items-start">
         <div className="flex flex-col">
@@ -364,7 +365,7 @@ function FlagshipCard({
           </p>
         </div>
 
-        <div className="relative mx-auto flex h-[220px] w-[220px] shrink-0 items-center justify-center">
+        <div className="relative mx-auto flex aspect-square w-full max-w-[220px] shrink-0 items-center justify-center sm:h-[220px] sm:w-[220px]">
           <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${imageGlow} blur-2xl`} />
           <img
             src={image}
@@ -372,9 +373,10 @@ function FlagshipCard({
             loading="lazy"
             width={220}
             height={220}
-            className="relative h-[220px] w-[220px] rounded-2xl object-cover"
+            className="relative h-full w-full rounded-2xl object-cover"
           />
         </div>
+
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -668,7 +670,7 @@ function FinalCTA() {
   return (
     <section className="section-y">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-navy p-8 text-navy-foreground shadow-glow md:p-16">
+        <div className="relative overflow-hidden rounded-3xl bg-navy p-6 sm:p-8 text-navy-foreground shadow-glow md:p-16">
           <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-purple/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-brand-cyan/30 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">

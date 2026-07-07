@@ -12,7 +12,7 @@ export function WhatsAppButton() {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className="fixed bottom-5 right-5 z-[60] flex items-center gap-3 md:bottom-6 md:right-6">
+    <div className="fixed bottom-6 right-5 z-[60] flex items-center gap-3 md:bottom-6 md:right-6">
       {hover && (
         <motion.span
           initial={{ opacity: 0, x: 8 }}
