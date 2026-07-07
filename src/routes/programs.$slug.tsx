@@ -72,8 +72,8 @@ export const Route = createFileRoute("/programs/$slug")({
 function ProgramDetail() {
   const { program } = Route.useLoaderData() as { program: import("@/lib/programs").Program };
 
-  const studentMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *student* interested in AI & Machine Learning. Please help me with:\n• Course structure, duration & fees\n• Hands-on projects and mentorship\n• Career opportunities after the program\n• Next steps to enroll\n\nThank you!`;
-  const proMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *working professional* looking to upskill / transition into AI & Machine Learning. Please help me with:\n• Program curriculum & weekend/live sessions\n• Duration, fees and payment options\n• Portfolio projects & career transition support\n• Next steps to get started\n\nLooking forward to your response.`;
+  const studentMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *student* interested in Gen AI Agent Engineer. Please help me with:\n• Course structure, duration & fees\n• Hands-on projects and mentorship\n• Career opportunities after the program\n• Next steps to enroll\n\nThank you!`;
+  const proMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *working professional* looking to upskill / transition into Gen AI Agent Engineer. Please help me with:\n• Program curriculum & weekend/live sessions\n• Duration, fees and payment options\n• Portfolio projects & career transition support\n• Next steps to get started\n\nLooking forward to your response.`;
   const whatsappUrl = `https://wa.me/919493133961?text=${encodeURIComponent(
     program.audience === "Students" ? studentMsg : proMsg
   )}`;
@@ -85,7 +85,7 @@ function ProgramDetail() {
         <div className="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-brand-cyan/30 blur-3xl" />
         <div className="container-page relative section-y">
           <Link to="/programs" className="text-sm text-navy-foreground/70 hover:text-white">
-            ← All AI & ML Programs
+            ← All Gen AI Agent Engineer Programs
           </Link>
           <div className="mt-6 max-w-3xl">
             <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium">

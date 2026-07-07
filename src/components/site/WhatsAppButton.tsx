@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 const WHATSAPP_NUMBER = "919493133961";
 const MESSAGE = `Hello GeekX United,
 
-I'm interested in learning more about your AI & Machine Learning programs. Please share the course details and help me get started.`;
+I'm interested in learning more about your Gen AI Agent Engineer programs. Please share the course details and help me get started.`;
 
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(MESSAGE)}`;
 

@@ -1,6 +1,6 @@
 // Static program catalog for Phase 1. TODO(client): replace with Supabase-backed data in Phase 2.
 export type Level = "Beginner" | "Intermediate" | "Advanced";
-export type Category = "AI & ML";
+export type Category = "Gen AI Agent Engineer";
 
 export type Program = {
   slug: string;
@@ -30,16 +30,16 @@ export type Program = {
 export const PROGRAMS: Program[] = [
   {
     slug: "ai-ml-for-students",
-    title: "AI & Machine Learning for Students",
+    title: "Gen AI Agent Engineer for Students",
     tagline:
       "Go from Python beginner to AI Engineer — build real ML models, RAG apps, and AI agents with a project-driven curriculum.",
-    category: "AI & ML",
+    category: "Gen AI Agent Engineer",
     level: "Beginner",
     duration: "16 weeks · ~10 hrs/week",
     featured: true,
     audience: "Students",
     overview:
-      "A hands-on AI & Machine Learning program built for students. Starting from Python fundamentals, you'll progress through Machine Learning, Deep Learning, Generative AI, RAG systems, and AI Agents — building a portfolio of 8+ real projects and a deployed capstone product by the end.",
+      "A hands-on Gen AI Agent Engineer program built for students. Starting from Python fundamentals, you'll progress through Machine Learning, Deep Learning, Generative AI, RAG systems, and AI Agents — building a portfolio of 8+ real projects and a deployed capstone product by the end.",
     whoItsFor: [
       "College students in engineering, science, or maths streams",
       "First-time coders exploring an AI-focused career path",
@@ -160,7 +160,7 @@ export const PROGRAMS: Program[] = [
       "GitHub",
     ],
     outcomes: [
-      "AI/ML Trainee",
+      "Gen AI Agent Engineer Trainee",
       "Junior Data Analyst",
       "AI Intern",
       "GenAI Developer Intern",
@@ -178,10 +178,10 @@ export const PROGRAMS: Program[] = [
   },
   {
     slug: "ai-ml-for-professionals",
-    title: "AI & Machine Learning for Working Professionals",
+    title: "Gen AI Agent Engineer for Working Professionals",
     tagline:
       "From Python developer to GenAI Agent Engineer — build LLM apps, RAG systems, and multi-agent products in an intensive career sprint.",
-    category: "AI & ML",
+    category: "Gen AI Agent Engineer",
     level: "Intermediate",
     duration: "12 weeks · ~12 hrs/week",
     featured: true,
@@ -189,7 +189,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "A career-focused, project-based program that takes professionals from ML fundamentals to production-ready GenAI Agent Engineers. Build LLM applications, RAG systems, and multi-agent products using the same stack modern AI teams use — OpenAI, Anthropic, LangChain, LangGraph, CrewAI, FastAPI, and more.",
     whoItsFor: [
-      "Software engineers moving into AI/ML and GenAI roles",
+      "Software engineers moving into Gen AI Agent Engineer and GenAI roles",
       "Data analysts levelling up into ML and LLM development",
       "Backend & full-stack engineers building AI features",
       "Managers, consultants and non-tech professionals leading AI initiatives",
@@ -337,7 +337,7 @@ export const PROGRAMS: Program[] = [
 ];
 
 
-export const CATEGORIES: Category[] = ["AI & ML"];
+export const CATEGORIES: Category[] = ["Gen AI Agent Engineer"];
 
 export function getProgram(slug: string): Program | undefined {
   return PROGRAMS.find((p) => p.slug === slug);
