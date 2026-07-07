@@ -29,9 +29,9 @@ export function HeroBrainSphere() {
         : 4;
     const isLowEnd = hwCores <= 4 || isSmall;
 
-    const N = isSmall ? 110 : isLowEnd ? 150 : 200;
-    const LINK_NEIGHBORS = isSmall ? 3 : 4;
-    const ORBIT_PARTICLES = prefersReduced ? 0 : isSmall ? 22 : 44;
+    const N = isSmall ? 55 : isLowEnd ? 150 : 200;
+    const LINK_NEIGHBORS = isSmall ? 2 : 4;
+    const ORBIT_PARTICLES = prefersReduced ? 0 : isSmall ? 10 : 44;
 
     let dpr = Math.min(window.devicePixelRatio || 1, isLowEnd ? 1.5 : 2);
     let width = 0;
