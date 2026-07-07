@@ -188,7 +188,7 @@ function Hero() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Magnetic>
               <Button asChild variant="gradient" size="xl">
-                <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                <Link to="/programs">Explore Gen AI Agent Engineer Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
             </Magnetic>
             <Magnetic>
