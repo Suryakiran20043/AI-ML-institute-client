@@ -71,7 +71,12 @@ export const submitEnquiry = createServerFn({ method: "POST" })
     `;
 
     try {
-      const { error: emailError } = await supabaseAdmin.rpc("enqueue_email", {
+      // `enqueue_email` RPC is created by Lovable email infrastructure setup.
+      // Cast because generated types don't include it until infra is provisioned.
+      const { error: emailError } = await (supabaseAdmin.rpc as unknown as (
+        fn: string,
+        args: Record<string, unknown>,
+      ) => Promise<{ error: unknown }>)("enqueue_email", {
         p_queue: "transactional_emails",
         p_payload: {
           to: RECIPIENT,
@@ -88,6 +93,7 @@ export const submitEnquiry = createServerFn({ method: "POST" })
     } catch (err) {
       console.error("[enquiry] email enqueue threw", err);
     }
+
 
     return { ok: true as const };
   });
