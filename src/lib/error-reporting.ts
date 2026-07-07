@@ -1,26 +1,30 @@
-type LovableErrorOptions = {
+type ErrorOptions = {
   mechanism?: "manual" | "onerror" | "unhandledrejection" | "react_error_boundary";
   handled?: boolean;
   severity?: "error" | "warning" | "info";
 };
 
-type LovableEvents = {
+type HostErrorEvents = {
   captureException?: (
     error: unknown,
     context?: Record<string, unknown>,
-    options?: LovableErrorOptions,
+    options?: ErrorOptions,
   ) => void;
 };
 
+// Runtime host hook — key name is a contract with the preview runtime and
+// must remain unchanged for error reporting to work.
+const HOST_EVENTS_KEY = "__lovableEvents" as const;
+
 declare global {
   interface Window {
-    __lovableEvents?: LovableEvents;
+    [HOST_EVENTS_KEY]?: HostErrorEvents;
   }
 }
 
-export function reportLovableError(error: unknown, context: Record<string, unknown> = {}) {
+export function reportError(error: unknown, context: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
-  window.__lovableEvents?.captureException?.(
+  window[HOST_EVENTS_KEY]?.captureException?.(
     error,
     {
       source: "react_error_boundary",
