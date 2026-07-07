@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { PROGRAMS } from "@/lib/programs";
+import { submitEnquiry } from "@/lib/enquiries.functions";
+
 import {
   Select,
   SelectContent,
@@ -40,13 +42,17 @@ export function EnquiryForm({ defaultCourse, sourcePage }: { defaultCourse?: str
   });
 
   async function onSubmit(values: FormValues) {
-    // TODO(phase-2): submit to Supabase enquiries table via createServerFn.
-    await new Promise((r) => setTimeout(r, 700));
-    console.log("[enquiry submission]", { ...values, sourcePage });
-    toast.success("Thanks! We'll be in touch within one business day.");
-    setSubmitted(true);
-    reset();
+    try {
+      await submitEnquiry({ data: { ...values, sourcePage } });
+      toast.success("Thanks! We'll be in touch within one business day.");
+      setSubmitted(true);
+      reset();
+    } catch (err) {
+      console.error("[enquiry submission]", err);
+      toast.error("Could not send your enquiry. Please try again.");
+    }
   }
+
 
   if (submitted) {
     return (
