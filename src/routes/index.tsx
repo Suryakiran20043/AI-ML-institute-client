@@ -183,17 +183,21 @@ function Hero() {
             hands-on projects, and mentors who've shipped real systems in production.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild variant="gradient" size="xl">
-              <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
-            </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="outline"
-              className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
-            >
-              <Link to="/contact">Book Free Consultation</Link>
-            </Button>
+            <Magnetic>
+              <Button asChild variant="gradient" size="xl">
+                <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button
+                asChild
+                size="xl"
+                variant="outline"
+                className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+              >
+                <Link to="/contact">Book Free Consultation</Link>
+              </Button>
+            </Magnetic>
           </div>
 
           {/* Animated stat counters */}
