@@ -24,14 +24,23 @@ export function TrustMarquee() {
   return (
     <section
       aria-label="Why learners choose GeekX United"
-      className="relative overflow-hidden bg-navy py-10"
+      className="relative -mt-px overflow-hidden bg-navy py-10"
     >
+      {/* seamless blend with hero above */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-24 h-32 bg-gradient-to-b from-transparent to-navy"
+      />
+      {/* subtle continuation of neural glow from hero */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,oklch(0.35_0.12_260/0.35),transparent_70%)]" />
+
       {/* ambient neon glow */}
       <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-24 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.24_300/0.2),transparent_60%)] blur-2xl" />
 
       {/* edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-navy to-transparent sm:w-28 md:w-40" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-navy to-transparent sm:w-28 md:w-40" />
+
 
       <div className="group relative overflow-hidden">
         <ul className="flex w-max flex-nowrap items-center gap-4 animate-marquee motion-reduce:animate-none group-hover:[animation-play-state:paused]">
