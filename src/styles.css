@@ -134,9 +134,21 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 @utility animate-marquee {
-  animation: marquee-x 35s linear infinite;
+  /* 6 × 6.98s hero-glow cycles for seamless continuity with hero pulse */
+  animation: marquee-x 41.88s linear infinite;
   will-change: transform;
 }
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@utility animate-hero-pulse {
+  /* matches HeroBrainSphere coreT * 0.9 sine period (2π/0.9 ≈ 6.98s) */
+  animation: hero-pulse 6.98s ease-in-out infinite;
+  will-change: opacity;
+}
+
 
 @keyframes border-spin {
   from { transform: rotate(0deg); }
