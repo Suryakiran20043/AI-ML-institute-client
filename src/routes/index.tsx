@@ -259,13 +259,19 @@ function WhySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
+              className="group relative"
             >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow">
-                <item.icon className="h-5 w-5 text-white" />
-              </div>
-              <h3 className="font-display text-lg font-bold">{item.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+              <TiltCard className="premium-card relative rounded-2xl">
+                <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative z-[2] rounded-2xl border border-border bg-card p-6 shadow-card transition-shadow duration-300 group-hover:shadow-glow">
+                  <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow animate-icon-float">
+                    <item.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="relative font-display text-lg font-bold">{item.title}</h3>
+                  <p className="relative mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
