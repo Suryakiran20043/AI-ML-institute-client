@@ -6,6 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 import { HeroNeuralBg } from "@/components/site/HeroNeuralBg";
 import { HeroBrainSphere } from "@/components/site/HeroBrainSphere";
+import { HeroLeftBeam } from "@/components/site/HeroLeftBeam";
 import { Magnetic, TiltCard } from "@/components/site/PremiumHover";
 
 import {
