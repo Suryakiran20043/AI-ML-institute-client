@@ -15,32 +15,44 @@ export function SplashIntro() {
     setMounted(true);
   }, []);
 
+  // Lock the page scroll only while the splash is on screen; always clear it
+  // once the splash is dismissed or the component unmounts.
+  useEffect(() => {
+    if (!mounted) return;
+    if (visible) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+    document.body.style.overflow = "";
+  }, [mounted, visible]);
+
   useEffect(() => {
     if (!mounted) return;
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
     const start = performance.now();
+    let timeoutId: number | undefined;
+    let safetyId: number | undefined;
 
     const finish = () => {
       const elapsed = performance.now() - start;
       const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
-      window.setTimeout(() => setVisible(false), remaining);
+      timeoutId = window.setTimeout(() => setVisible(false), remaining);
     };
 
-    // Wait until the window (and images/fonts it can) has loaded, then honor
-    // the minimum visible duration so the intro never gets cut off early.
     if (document.readyState === "complete") {
       finish();
     } else {
       window.addEventListener("load", finish, { once: true });
-      // Safety net in case `load` never fires (slow third‑party asset, etc.).
-      window.setTimeout(finish, MIN_VISIBLE_MS + 500);
+      safetyId = window.setTimeout(finish, MIN_VISIBLE_MS + 500);
     }
 
     return () => {
-      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("load", finish);
+      if (timeoutId) window.clearTimeout(timeoutId);
+      if (safetyId) window.clearTimeout(safetyId);
     };
   }, [mounted]);
 
@@ -55,10 +67,8 @@ export function SplashIntro() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          onAnimationComplete={() => {
-            if (!visible) document.body.style.overflow = "";
-          }}
         >
+
 
           {/* Soft rounded card behind logo (Klyzen-style) */}
           <motion.div
