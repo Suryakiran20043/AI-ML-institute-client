@@ -138,7 +138,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SplashIntro />
-      
+      <ScrollProgress />
       <Navbar />
       <main className="min-h-[60dvh]">
         <Outlet />
