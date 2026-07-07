@@ -18,7 +18,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-navy-foreground/70 max-w-xs">
-              Where Tech Minds Unite. A premium Gen AI Agent Engineer institute built for
+              Where Tech Minds Unite. A premium Advanced certification in Gen AI & Agentic AI institute built for
               practical, project-based learning and career outcomes.
             </p>
             <div className="mt-5 flex gap-3">
@@ -41,7 +41,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               {[
                 { to: "/", label: "Home" },
-                { to: "/programs", label: "Gen AI Agent Engineer Programs" },
+                { to: "/programs", label: "Advanced certification in Gen AI & Agentic AI Programs" },
                 { to: "/about", label: "About" },
                 { to: "/success-stories", label: "Success Stories" },
                 { to: "/community", label: "Community" },

@@ -6,14 +6,14 @@ import { PROGRAMS } from "@/lib/programs";
 export const Route = createFileRoute("/programs/")({
   head: () => ({
     meta: [
-      { title: "Gen AI Agent Engineer Programs — GeekX United" },
+      { title: "Advanced certification in Gen AI & Agentic AI Programs — GeekX United" },
       {
         name: "description",
         content:
-          "Two flagship Gen AI Agent Engineer programs — for students and for working professionals. Practical, project-based, and career-focused.",
+          "Two flagship Advanced certification in Gen AI & Agentic AI programs — for students and for working professionals. Practical, project-based, and career-focused.",
       },
-      { property: "og:title", content: "Gen AI Agent Engineer Programs — GeekX United" },
-      { property: "og:description", content: "Gen AI Agent Engineer programs for students and working professionals." },
+      { property: "og:title", content: "Advanced certification in Gen AI & Agentic AI Programs — GeekX United" },
+      { property: "og:description", content: "Advanced certification in Gen AI & Agentic AI programs for students and working professionals." },
       { property: "og:url", content: "/programs" },
     ],
     links: [{ rel: "canonical", href: "/programs" }],
@@ -27,9 +27,9 @@ function ProgramsPage() {
       <div className="container-page">
         <SectionHeader
           center
-          eyebrow="Gen AI Agent Engineer Programs"
+          eyebrow="Advanced certification in Gen AI & Agentic AI Programs"
           title={<>Two flagship programs. <span className="text-gradient-brand">One clear path into AI.</span></>}
-          description="Focused, practical, and mentor-led Gen AI Agent Engineer training — designed for students and working professionals."
+          description="Focused, practical, and mentor-led Advanced certification in Gen AI & Agentic AI training — designed for students and working professionals."
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">

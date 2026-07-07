@@ -47,14 +47,14 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GeekX United — Premium Gen AI Agent Engineer Institute" },
+      { title: "GeekX United — Premium Advanced certification in Gen AI & Agentic AI Institute" },
       {
         name: "description",
         content:
-          "A premium Gen AI Agent Engineer institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
+          "A premium Advanced certification in Gen AI & Agentic AI institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
       },
-      { property: "og:title", content: "GeekX United — Premium Gen AI Agent Engineer Institute" },
-      { property: "og:description", content: "Practical Gen AI Agent Engineer programs for students and working professionals." },
+      { property: "og:title", content: "GeekX United — Premium Advanced certification in Gen AI & Agentic AI Institute" },
+      { property: "og:description", content: "Practical Advanced certification in Gen AI & Agentic AI programs for students and working professionals." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -86,9 +86,9 @@ const WHY = [
 ];
 
 const JOURNEY = [
-  { step: "01", title: "Clarity", desc: "Understand what Gen AI Agent Engineer actually are — no jargon, no hand-waving." },
+  { step: "01", title: "Clarity", desc: "Understand what Advanced certification in Gen AI & Agentic AI actually are — no jargon, no hand-waving." },
   { step: "02", title: "Skills", desc: "Learn Python, ML, Deep Learning, and modern AI tools through structured practice." },
-  { step: "03", title: "Projects", desc: "Ship real-world Gen AI Agent Engineer projects that become your portfolio." },
+  { step: "03", title: "Projects", desc: "Ship real-world Advanced certification in Gen AI & Agentic AI projects that become your portfolio." },
   { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land or transition into an AI role." },
 ];
 
@@ -232,9 +232,9 @@ function Hero() {
               Two flagship programs
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-navy-foreground/70">
-              <span>Gen AI Agent Engineer for Students</span>
+              <span>Advanced certification in Gen AI & Agentic AI for Students</span>
               <span>·</span>
-              <span>Gen AI Agent Engineer for Working Professionals</span>
+              <span>Advanced certification in Gen AI & Agentic AI for Working Professionals</span>
             </div>
           </div>
         </motion.div>
@@ -445,7 +445,7 @@ function FeaturedPrograms() {
           <FlagshipCard
             slug="ai-ml-for-students"
             eyebrow="For Students"
-            title="Gen AI Agent Engineer"
+            title="Advanced certification in Gen AI & Agentic AI"
             titleAccent="for Students"
             description="A complete program to build strong foundations, work on real projects, and kickstart your AI career."
             image={flagshipStudent}
@@ -469,7 +469,7 @@ function FeaturedPrograms() {
           <FlagshipCard
             slug="ai-ml-for-professionals"
             eyebrow="For Working Professionals"
-            title="Gen AI Agent Engineer"
+            title="Advanced certification in Gen AI & Agentic AI"
             titleAccent="for Professionals"
             description="Advance your career with AI skills, real-world case studies, and industry-grade projects."
             image={flagshipPro}
