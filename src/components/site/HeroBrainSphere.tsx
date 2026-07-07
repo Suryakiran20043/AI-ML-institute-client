@@ -128,7 +128,7 @@ export function HeroBrainSphere({
       if (!ctx) return;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      ry += dt * 0.18; // slow rotation
+      ry += dt * 0.18 * direction; // slow rotation, direction-aware
       rx = Math.sin(now * 0.00015) * 0.25;
       coreT += dt;
 
