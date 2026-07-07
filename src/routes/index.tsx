@@ -348,7 +348,7 @@ function FlagshipCard({
         className="premium-card relative h-full rounded-3xl"
       >
         <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="relative z-[2] flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-shadow duration-300 group-hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]">
+        <div className="relative z-[2] flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-shadow duration-300 group-hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]">
           <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="grid gap-6 md:grid-cols-[1.15fr_auto] md:items-start">
         <div className="flex flex-col">
