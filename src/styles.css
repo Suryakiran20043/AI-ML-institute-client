@@ -240,8 +240,6 @@
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
   animation: premium-border-spin 6s linear infinite;
   pointer-events: none;
   z-index: 1;
