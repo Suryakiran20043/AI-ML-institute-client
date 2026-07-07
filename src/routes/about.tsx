@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { GradientAvatar } from "@/components/site/GradientAvatar";
+import founderRam from "@/assets/founder-ram.jpg";
+import founderNageswar from "@/assets/founder-nageswar.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -91,12 +92,14 @@ function AboutPage() {
               role="Founder & Chief Growth Officer"
               bio="15+ years in talent acquisition and workforce consulting across IT, Healthcare, Retail, Pharma, and BFSI sectors. Ram leads growth, brand strategy, and industry partnerships at GeekX United."
               belief="The first step to learning AI isn't coding — it's clarity."
+              avatar={founderRam}
             />
             <FounderCard
               name="Nageswar"
               role="Head of AI & Emerging Technologies Training"
               bio="AI Solution Architect and Generative AI specialist with 10+ years building enterprise-grade AI, ML, NLP, LLM, and RAG solutions, plus 3+ years training students and professionals in practical AI skills."
               belief="Curriculum designed by someone who has actually shipped it."
+              avatar={founderNageswar}
             />
           </div>
         </div>
@@ -110,11 +113,13 @@ function FounderCard({
   role,
   bio,
   belief,
+  avatar,
 }: {
   name: string;
   role: string;
   bio: string;
   belief: string;
+  avatar: string;
 }) {
   return (
     <motion.div
@@ -125,7 +130,14 @@ function FounderCard({
       className="rounded-2xl border border-border bg-card p-8 shadow-card"
     >
       <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
-        <GradientAvatar name={name} size="xl" />
+        <img
+          src={avatar}
+          alt={`${name} — ${role}`}
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className="h-24 w-24 rounded-full object-cover ring-2 ring-brand-purple/20"
+        />
         <div>
           <h3 className="font-display text-2xl font-bold">{name}</h3>
           <p className="text-sm font-medium text-gradient-brand">{role}</p>

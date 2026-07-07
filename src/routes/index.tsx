@@ -32,6 +32,8 @@ import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
 import flagshipStudent from "@/assets/flagship-student.jpg";
 import flagshipPro from "@/assets/flagship-pro.jpg";
+import founderRam from "@/assets/founder-ram.jpg";
+import founderNageswar from "@/assets/founder-nageswar.jpg";
 
 import {
   Accordion,
@@ -549,11 +551,13 @@ function FoundersPreview() {
       name: "Ram",
       role: "Founder & Chief Growth Officer",
       bio: "15+ years in talent acquisition and workforce consulting across IT, Healthcare, Retail, Pharma, and BFSI. Leads growth, brand strategy, and industry partnerships.",
+      avatar: founderRam,
     },
     {
       name: "Nageswar",
       role: "Head of AI & Emerging Technologies Training",
       bio: "AI Solution Architect and Generative AI specialist with 10+ years building enterprise-grade AI, ML, NLP, LLM, and RAG solutions. Leads curriculum design and hands-on training.",
+      avatar: founderNageswar,
     },
   ];
   return (
@@ -567,7 +571,14 @@ function FoundersPreview() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {founders.map((f) => (
             <div key={f.name} className="flex gap-5 rounded-2xl border border-border bg-card p-6 shadow-card md:p-8">
-              <GradientAvatar name={f.name} size="lg" />
+              <img
+                src={f.avatar}
+                alt={`${f.name} — ${f.role}`}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-20 w-20 flex-shrink-0 rounded-full object-cover ring-2 ring-brand-purple/20"
+              />
               <div>
                 <h3 className="font-display text-xl font-bold">{f.name}</h3>
                 <p className="text-sm font-medium text-gradient-brand">{f.role}</p>
