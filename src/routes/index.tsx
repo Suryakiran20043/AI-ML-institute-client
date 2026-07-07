@@ -5,6 +5,7 @@ import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
 import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 import { HeroNeuralBg } from "@/components/site/HeroNeuralBg";
+import { Magnetic, TiltCard } from "@/components/site/PremiumHover";
 
 import {
   Sparkles,
@@ -182,17 +183,21 @@ function Hero() {
             hands-on projects, and mentors who've shipped real systems in production.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild variant="gradient" size="xl">
-              <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
-            </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="outline"
-              className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
-            >
-              <Link to="/contact">Book Free Consultation</Link>
-            </Button>
+            <Magnetic>
+              <Button asChild variant="gradient" size="xl">
+                <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button
+                asChild
+                size="xl"
+                variant="outline"
+                className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+              >
+                <Link to="/contact">Book Free Consultation</Link>
+              </Button>
+            </Magnetic>
           </div>
 
           {/* Animated stat counters */}
@@ -254,13 +259,19 @@ function WhySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
+              className="group relative"
             >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow">
-                <item.icon className="h-5 w-5 text-white" />
-              </div>
-              <h3 className="font-display text-lg font-bold">{item.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+              <TiltCard className="premium-card relative rounded-2xl">
+                <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative z-[2] rounded-2xl border border-border bg-card p-6 shadow-card transition-shadow duration-300 group-hover:shadow-glow">
+                  <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow animate-icon-float">
+                    <item.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="relative font-display text-lg font-bold">{item.title}</h3>
+                  <p className="relative mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
@@ -325,8 +336,16 @@ function FlagshipCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-all hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]"
+      className="group relative h-full"
     >
+      <TiltCard
+        max={4}
+        scale={1.005}
+        className="premium-card relative h-full rounded-3xl"
+      >
+        <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="relative z-[2] flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.15)] transition-shadow duration-300 group-hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.25)]">
+          <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="grid gap-6 md:grid-cols-[1.15fr_auto] md:items-start">
         <div className="flex flex-col">
           <span className={`inline-flex w-fit rounded-lg px-3 py-1 text-xs font-semibold ${eyebrowBg}`}>
@@ -381,13 +400,15 @@ function FlagshipCard({
         </ul>
       </div>
 
-      <Link
-        to="/programs/$slug"
-        params={{ slug }}
-        className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] pt-3.5 ${btn}`}
-      >
-        View Curriculum <ArrowRight className="h-4 w-4" />
-      </Link>
+        <Link
+          to="/programs/$slug"
+          params={{ slug }}
+          className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] pt-3.5 ${btn}`}
+        >
+          View Curriculum <ArrowRight className="h-4 w-4" />
+        </Link>
+        </div>
+      </TiltCard>
     </motion.div>
   );
 }

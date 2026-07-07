@@ -193,6 +193,65 @@
   will-change: box-shadow;
 }
 
+/* Floating icon — gentle continuous bob for small icon chips */
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@utility animate-icon-float {
+  animation: icon-float 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Premium card wrapper — animated conic-gradient border ring that becomes
+   visible on hover, plus a cursor-tracked spotlight. Requires --mx/--my
+   custom properties (set by TiltCard on pointermove) for the spotlight. */
+@keyframes premium-border-spin {
+  to { --angle: 360deg; }
+}
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@utility premium-card {
+  position: relative;
+  isolation: isolate;
+}
+@utility premium-card-ring {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0deg,
+    oklch(0.62 0.22 300 / 0.9) 60deg,
+    oklch(0.78 0.15 220 / 0.9) 120deg,
+    transparent 180deg,
+    transparent 360deg
+  );
+  animation: premium-border-spin 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(6px);
+}
+@utility premium-card-spotlight {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    oklch(0.78 0.15 220 / 0.10),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
 
 
 
