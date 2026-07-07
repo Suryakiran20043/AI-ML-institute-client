@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
+import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 
 import {
   Sparkles,
@@ -116,14 +117,14 @@ function HomePage() {
     <>
       <Hero />
       <TrustMarquee />
-      <WhySection />
-      <FeaturedPrograms />
-      <JourneySection />
-      <ToolsSection />
-      <FoundersPreview />
-      <TestimonialsSection />
-      <FAQSection />
-      <FinalCTA />
+      <MobileScrollFade><WhySection /></MobileScrollFade>
+      <MobileScrollFade><FeaturedPrograms /></MobileScrollFade>
+      <MobileScrollFade><JourneySection /></MobileScrollFade>
+      <MobileScrollFade><ToolsSection /></MobileScrollFade>
+      <MobileScrollFade><FoundersPreview /></MobileScrollFade>
+      <MobileScrollFade><TestimonialsSection /></MobileScrollFade>
+      <MobileScrollFade><FAQSection /></MobileScrollFade>
+      <MobileScrollFade><FinalCTA /></MobileScrollFade>
     </>
   );
 }
