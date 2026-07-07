@@ -72,8 +72,8 @@ export const Route = createFileRoute("/programs/$slug")({
 function ProgramDetail() {
   const { program } = Route.useLoaderData() as { program: import("@/lib/programs").Program };
 
-  const studentMsg = `Hi GeekX United!\n\nI'm a student and I'm interested in your AI & Machine Learning program. I'd like to book a free consultation and learn more about the course, projects, and career opportunities.\n\nPlease let me know the next steps.`;
-  const proMsg = `Hi GeekX United!\n\nI'm a working professional looking to upskill in AI & Machine Learning. I'd like to book a free consultation to understand the program, learning path, and how it can help my career.\n\nLooking forward to hearing from you.`;
+  const studentMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *student* interested in AI & Machine Learning. Please help me with:\n• Course structure, duration & fees\n• Hands-on projects and mentorship\n• Career opportunities after the program\n• Next steps to enroll\n\nThank you!`;
+  const proMsg = `Hello GeekX United,\n\nI'd like to *Book a Free Consultation* for the "${program.title}" program.\n\nI'm a *working professional* looking to upskill / transition into AI & Machine Learning. Please help me with:\n• Program curriculum & weekend/live sessions\n• Duration, fees and payment options\n• Portfolio projects & career transition support\n• Next steps to get started\n\nLooking forward to your response.`;
   const whatsappUrl = `https://wa.me/919493133961?text=${encodeURIComponent(
     program.audience === "Students" ? studentMsg : proMsg
   )}`;
