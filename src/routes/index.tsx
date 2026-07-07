@@ -47,14 +47,14 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GeekX United — Premium AI & Machine Learning Institute" },
+      { title: "GeekX United — Premium Gen AI Agent Engineer Institute" },
       {
         name: "description",
         content:
-          "A premium AI & Machine Learning institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
+          "A premium Gen AI Agent Engineer institute. Practical, project-based programs for students and working professionals with career-focused mentorship.",
       },
-      { property: "og:title", content: "GeekX United — Premium AI & Machine Learning Institute" },
-      { property: "og:description", content: "Practical AI & ML programs for students and working professionals." },
+      { property: "og:title", content: "GeekX United — Premium Gen AI Agent Engineer Institute" },
+      { property: "og:description", content: "Practical Gen AI Agent Engineer programs for students and working professionals." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -86,9 +86,9 @@ const WHY = [
 ];
 
 const JOURNEY = [
-  { step: "01", title: "Clarity", desc: "Understand what AI & ML actually are — no jargon, no hand-waving." },
+  { step: "01", title: "Clarity", desc: "Understand what Gen AI Agent Engineer actually are — no jargon, no hand-waving." },
   { step: "02", title: "Skills", desc: "Learn Python, ML, Deep Learning, and modern AI tools through structured practice." },
-  { step: "03", title: "Projects", desc: "Ship real-world AI & ML projects that become your portfolio." },
+  { step: "03", title: "Projects", desc: "Ship real-world Gen AI Agent Engineer projects that become your portfolio." },
   { step: "04", title: "Career", desc: "Polish portfolio, resume, and interview skills to land or transition into an AI role." },
 ];
 
@@ -188,7 +188,7 @@ function Hero() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Magnetic>
               <Button asChild variant="gradient" size="xl">
-                <Link to="/programs">Explore AI &amp; ML Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                <Link to="/programs">Explore Gen AI Agent Engineer Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
             </Magnetic>
             <Magnetic>
@@ -231,9 +231,9 @@ function Hero() {
               Two flagship programs
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-navy-foreground/70">
-              <span>AI &amp; Machine Learning for Students</span>
+              <span>Gen AI Agent Engineer for Students</span>
               <span>·</span>
-              <span>AI &amp; Machine Learning for Working Professionals</span>
+              <span>Gen AI Agent Engineer for Working Professionals</span>
             </div>
           </div>
         </motion.div>
@@ -443,7 +443,7 @@ function FeaturedPrograms() {
           <FlagshipCard
             slug="ai-ml-for-students"
             eyebrow="For Students"
-            title="AI & Machine Learning"
+            title="Gen AI Agent Engineer"
             titleAccent="for Students"
             description="A complete program to build strong foundations, work on real projects, and kickstart your AI career."
             image={flagshipStudent}
@@ -467,7 +467,7 @@ function FeaturedPrograms() {
           <FlagshipCard
             slug="ai-ml-for-professionals"
             eyebrow="For Working Professionals"
-            title="AI & Machine Learning"
+            title="Gen AI Agent Engineer"
             titleAccent="for Professionals"
             description="Advance your career with AI skills, real-world case studies, and industry-grade projects."
             image={flagshipPro}
