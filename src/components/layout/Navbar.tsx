@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
+const logoFull = { url: "/geekx-logo-transparent.png" };
 
 
 const NAV = [
