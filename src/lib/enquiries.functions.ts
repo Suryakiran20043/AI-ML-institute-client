@@ -71,8 +71,9 @@ export const submitEnquiry = createServerFn({ method: "POST" })
     `;
 
     try {
-      // `enqueue_email` RPC is created by Lovable email infrastructure setup.
+      // `enqueue_email` RPC is provisioned by the email infrastructure setup.
       // Cast because generated types don't include it until infra is provisioned.
+
       const { error: emailError } = await (supabaseAdmin.rpc as unknown as (
         fn: string,
         args: Record<string, unknown>,
