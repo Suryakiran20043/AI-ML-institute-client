@@ -31,11 +31,12 @@ export function TrustMarquee() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-24 h-32 bg-gradient-to-b from-transparent to-navy"
       />
-      {/* subtle continuation of neural glow from hero */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,oklch(0.35_0.12_260/0.35),transparent_70%)]" />
+      {/* subtle continuation of neural glow from hero — pulses with hero core */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,oklch(0.35_0.12_260/0.35),transparent_70%)] animate-hero-pulse motion-reduce:animate-none" />
 
-      {/* ambient neon glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-24 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.24_300/0.2),transparent_60%)] blur-2xl" />
+      {/* ambient neon glow — synced to hero pulse */}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 h-24 bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.24_300/0.2),transparent_60%)] blur-2xl animate-hero-pulse motion-reduce:animate-none" />
+
 
       {/* edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-navy to-transparent sm:w-28 md:w-40" />
