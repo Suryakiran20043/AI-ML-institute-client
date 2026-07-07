@@ -670,7 +670,7 @@ function FinalCTA() {
   return (
     <section className="section-y">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-navy p-8 text-navy-foreground shadow-glow md:p-16">
+        <div className="relative overflow-hidden rounded-3xl bg-navy p-6 sm:p-8 text-navy-foreground shadow-glow md:p-16">
           <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-purple/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-32 -right-16 h-96 w-96 rounded-full bg-brand-cyan/30 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
