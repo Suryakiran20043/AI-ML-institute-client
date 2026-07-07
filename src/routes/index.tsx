@@ -32,6 +32,8 @@ import { GradientAvatar } from "@/components/site/GradientAvatar";
 import { PROGRAMS } from "@/lib/programs";
 import flagshipStudent from "@/assets/flagship-student.jpg";
 import flagshipPro from "@/assets/flagship-pro.jpg";
+import founderRam from "@/assets/founder-ram.jpg";
+import founderNageswar from "@/assets/founder-nageswar.jpg";
 
 import {
   Accordion,
