@@ -1,4 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
+
+type Dust = { top: string; left: string; delay: number; char: string; anim: string };
+
 
 /**
  * Cinematic AI hero background.
