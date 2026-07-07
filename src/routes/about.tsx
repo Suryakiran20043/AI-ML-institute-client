@@ -113,11 +113,13 @@ function FounderCard({
   role,
   bio,
   belief,
+  avatar,
 }: {
   name: string;
   role: string;
   bio: string;
   belief: string;
+  avatar: string;
 }) {
   return (
     <motion.div
@@ -128,7 +130,14 @@ function FounderCard({
       className="rounded-2xl border border-border bg-card p-8 shadow-card"
     >
       <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
-        <GradientAvatar name={name} size="xl" />
+        <img
+          src={avatar}
+          alt={`${name} — ${role}`}
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className="h-24 w-24 rounded-full object-cover ring-2 ring-brand-purple/20"
+        />
         <div>
           <h3 className="font-display text-2xl font-bold">{name}</h3>
           <p className="text-sm font-medium text-gradient-brand">{role}</p>
