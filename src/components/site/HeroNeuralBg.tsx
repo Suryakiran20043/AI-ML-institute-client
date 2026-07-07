@@ -1,4 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
+
+type Dust = { top: string; left: string; delay: number; char: string; anim: string };
+
 
 /**
  * Cinematic AI hero background.
@@ -15,6 +18,19 @@ export function HeroNeuralBg() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const meshRef = useRef<HTMLDivElement>(null);
   const iconsRef = useRef<HTMLDivElement>(null);
+
+  const DIGITAL_DUST = useMemo<Dust[]>(() => {
+    const anims = ["animate-float-a", "animate-float-b", "animate-float-c"];
+    const chars = ["0", "1", "0", "1", "10", "01", "//"];
+    return Array.from({ length: 42 }).map((_, i) => ({
+      top: `${(i * 37) % 96}%`,
+      left: `${(i * 53) % 98}%`,
+      delay: (i % 8) * 0.6,
+      char: chars[i % chars.length],
+      anim: anims[i % anims.length],
+    }));
+  }, []);
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -418,6 +434,36 @@ export function HeroNeuralBg() {
         }}
       />
 
+      {/* Volumetric light rays */}
+      <div
+        className="absolute inset-0 opacity-40 mix-blend-screen animate-hero-rays"
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 30%, rgba(34,211,238,0.10) 42%, transparent 55%), linear-gradient(65deg, transparent 40%, rgba(139,92,246,0.09) 52%, transparent 66%), linear-gradient(95deg, transparent 55%, rgba(147,197,253,0.07) 65%, transparent 78%)",
+          filter: "blur(6px)",
+          willChange: "transform, opacity",
+        }}
+      />
+
+      {/* Digital dust / binary particles */}
+      <div className="absolute inset-0 hidden md:block opacity-40">
+        {DIGITAL_DUST.map((d, i) => (
+          <span
+            key={i}
+            className={`absolute text-[9px] font-mono text-cyan-200/50 ${d.anim}`}
+            style={{
+              top: d.top,
+              left: d.left,
+              animationDelay: `${d.delay}s`,
+              willChange: "transform, opacity",
+            }}
+          >
+            {d.char}
+          </span>
+        ))}
+      </div>
+
+
       {/* Neural network canvas */}
       <canvas
         ref={canvasRef}
@@ -448,6 +494,12 @@ export function HeroNeuralBg() {
         </FloatingIcon>
         <FloatingIcon className="top-[50%] right-[38%] animate-float-c" delay={3}>
           <GridIcon />
+        </FloatingIcon>
+        <FloatingIcon className="top-[30%] left-[30%] animate-float-a" delay={2}>
+          <GradCapIcon />
+        </FloatingIcon>
+        <FloatingIcon className="top-[78%] left-[38%] animate-float-b" delay={4}>
+          <NodeIcon />
         </FloatingIcon>
       </div>
     </div>
@@ -565,6 +617,36 @@ function GridIcon() {
           <line x1="4" y1={4 + i * 8} x2="48" y2={4 + i * 8} stroke={stroke} strokeWidth="0.6" />
         </g>
       ))}
+    </svg>
+  );
+}
+
+function GradCapIcon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden>
+      <path d="M4 20L26 10l22 10-22 10L4 20z" stroke={stroke} strokeWidth="1" strokeLinejoin="round" />
+      <path d="M14 24v8c0 3 5 6 12 6s12-3 12-6v-8" stroke={stroke} strokeWidth="1" />
+      <path d="M44 22v10" stroke={stroke} strokeWidth="1" strokeLinecap="round" />
+      <circle cx="44" cy="34" r="1.4" fill={stroke} />
+    </svg>
+  );
+}
+
+function NodeIcon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden>
+      <circle cx="26" cy="26" r="4" stroke={stroke} strokeWidth="1" />
+      {[0, 60, 120, 180, 240, 300].map((deg) => {
+        const rad = (deg * Math.PI) / 180;
+        const x = 26 + Math.cos(rad) * 20;
+        const y = 26 + Math.sin(rad) * 20;
+        return (
+          <g key={deg}>
+            <line x1="26" y1="26" x2={x} y2={y} stroke={stroke} strokeWidth="0.6" />
+            <circle cx={x} cy={y} r="2" stroke={stroke} strokeWidth="1" />
+          </g>
+        );
+      })}
     </svg>
   );
 }

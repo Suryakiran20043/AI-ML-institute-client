@@ -9,7 +9,15 @@ import { useEffect, useRef } from "react";
  * - Rendered on a canvas positioned to the right of the hero at 10–15% opacity.
  * - Pauses off-screen / hidden tab / prefers-reduced-motion.
  */
-export function HeroBrainSphere() {
+export function HeroBrainSphere({
+  side = "right",
+  direction = 1,
+  wireframe = false,
+}: {
+  side?: "left" | "right";
+  direction?: 1 | -1;
+  wireframe?: boolean;
+} = {}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -120,7 +128,7 @@ export function HeroBrainSphere() {
       if (!ctx) return;
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
-      ry += dt * 0.18; // slow rotation
+      ry += dt * 0.18 * direction; // slow rotation, direction-aware
       rx = Math.sin(now * 0.00015) * 0.25;
       coreT += dt;
 
@@ -326,11 +334,17 @@ export function HeroBrainSphere() {
     };
   }, []);
 
+  const posClass =
+    side === "left"
+      ? "left-[-10%] w-[58%] lg:w-[46%]"
+      : "right-[-8%] w-[62%] lg:w-[52%]";
+  const opacityClass = wireframe ? "opacity-[0.10] lg:opacity-[0.12]" : "opacity-[0.14] lg:opacity-[0.16]";
+
   return (
     <div
       ref={wrapRef}
       aria-hidden
-      className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 hidden md:block h-[110%] w-[62%] lg:w-[52%] opacity-[0.14] lg:opacity-[0.15]"
+      className={`pointer-events-none absolute top-1/2 -translate-y-1/2 hidden md:block h-[110%] ${posClass} ${opacityClass}`}
       style={{ mixBlendMode: "screen" }}
     >
       <canvas
