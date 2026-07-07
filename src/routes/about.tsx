@@ -92,12 +92,14 @@ function AboutPage() {
               role="Founder & Chief Growth Officer"
               bio="15+ years in talent acquisition and workforce consulting across IT, Healthcare, Retail, Pharma, and BFSI sectors. Ram leads growth, brand strategy, and industry partnerships at GeekX United."
               belief="The first step to learning AI isn't coding — it's clarity."
+              avatar={founderRam}
             />
             <FounderCard
               name="Nageswar"
               role="Head of AI & Emerging Technologies Training"
               bio="AI Solution Architect and Generative AI specialist with 10+ years building enterprise-grade AI, ML, NLP, LLM, and RAG solutions, plus 3+ years training students and professionals in practical AI skills."
               belief="Curriculum designed by someone who has actually shipped it."
+              avatar={founderNageswar}
             />
           </div>
         </div>
