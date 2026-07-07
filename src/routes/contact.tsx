@@ -28,8 +28,9 @@ function ContactPage() {
         />
         <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
           <div className="space-y-6">
-            <ContactRow icon={Mail} label="Email" value="hello@geekxunited.com" />
+            <ContactRow icon={Mail} label="Email" value="info@geekxunited.com" />
             <ContactRow icon={Phone} label="Phone" value="+91 94931 33961" />
+
           </div>
           <EnquiryForm sourcePage="/contact" />
         </div>
