@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { GradientAvatar } from "@/components/site/GradientAvatar";
+import founderRam from "@/assets/founder-ram.jpg";
+import founderNageswar from "@/assets/founder-nageswar.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
