@@ -292,3 +292,27 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Hero cinematic background animations */
+@keyframes hero-mesh {
+  0%   { transform: translate3d(0, 0, 0) scale(1); filter: blur(40px) hue-rotate(0deg); }
+  50%  { transform: translate3d(2%, -1.5%, 0) scale(1.05); filter: blur(46px) hue-rotate(12deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1); filter: blur(40px) hue-rotate(0deg); }
+}
+.animate-hero-mesh { animation: hero-mesh 28s ease-in-out infinite; }
+
+@keyframes float-a {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.35; }
+  50%      { transform: translate3d(0, -14px, 0) rotate(4deg); opacity: 0.55; }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.3; }
+  50%      { transform: translate3d(-10px, -8px, 0) rotate(-3deg); opacity: 0.55; }
+}
+@keyframes float-c {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.28; }
+  50%      { transform: translate3d(8px, -12px, 0) rotate(3deg); opacity: 0.5; }
+}
+.animate-float-a { animation: float-a 12s ease-in-out infinite; }
+.animate-float-b { animation: float-b 14s ease-in-out infinite; }
+.animate-float-c { animation: float-c 16s ease-in-out infinite; }
