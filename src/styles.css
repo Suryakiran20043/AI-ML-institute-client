@@ -138,6 +138,17 @@
   will-change: transform;
 }
 
+/* Hero-synced breathing glow — matches HeroBrainSphere core pulse (~7s) */
+@keyframes hero-sync-glow {
+  0%, 100% { opacity: 0.55; transform: translateY(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateY(-50%) scale(1.06); }
+}
+@utility animate-hero-sync-glow {
+  animation: hero-sync-glow 6.98s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+
 @keyframes border-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
