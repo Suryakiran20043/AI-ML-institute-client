@@ -156,6 +156,8 @@ function Hero() {
         style={{ y: orb2Y, willChange: "transform" }}
         className="pointer-events-none absolute -bottom-40 -right-24 h-[28rem] w-[28rem] rounded-full bg-brand-cyan/30 blur-3xl"
       />
+      {/* Canvas neural network + aurora + digital wave */}
+      <HeroNeuralBg />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,transparent,oklch(0.22_0.05_260)_70%)]" />
 
       <div className="container-page relative section-y pt-[100px] md:pt-[100px]">
