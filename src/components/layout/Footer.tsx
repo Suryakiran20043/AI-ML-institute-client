@@ -82,7 +82,6 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-2 text-sm text-navy-foreground/80">
               <li>info@geekxunited.com</li>
-              <li>+91 94931 33961</li>
               <li>India</li>
             </ul>
           </div>
