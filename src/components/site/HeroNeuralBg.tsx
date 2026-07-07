@@ -574,3 +574,33 @@ function GridIcon() {
     </svg>
   );
 }
+
+function GradCapIcon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden>
+      <path d="M4 20L26 10l22 10-22 10L4 20z" stroke={stroke} strokeWidth="1" strokeLinejoin="round" />
+      <path d="M14 24v8c0 3 5 6 12 6s12-3 12-6v-8" stroke={stroke} strokeWidth="1" />
+      <path d="M44 22v10" stroke={stroke} strokeWidth="1" strokeLinecap="round" />
+      <circle cx="44" cy="34" r="1.4" fill={stroke} />
+    </svg>
+  );
+}
+
+function NodeIcon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden>
+      <circle cx="26" cy="26" r="4" stroke={stroke} strokeWidth="1" />
+      {[0, 60, 120, 180, 240, 300].map((deg) => {
+        const rad = (deg * Math.PI) / 180;
+        const x = 26 + Math.cos(rad) * 20;
+        const y = 26 + Math.sin(rad) * 20;
+        return (
+          <g key={deg}>
+            <line x1="26" y1="26" x2={x} y2={y} stroke={stroke} strokeWidth="0.6" />
+            <circle cx={x} cy={y} r="2" stroke={stroke} strokeWidth="1" />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
