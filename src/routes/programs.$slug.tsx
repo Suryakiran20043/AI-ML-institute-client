@@ -157,14 +157,15 @@ function ProgramDetail() {
               <div className="mt-4 space-y-3">
                 {program.curriculum.map((m, i) => (
                   <div key={i} className="rounded-2xl border border-border bg-card p-5 shadow-card">
-                    <div className="flex items-center gap-3">
-                      <span className="font-display text-lg font-bold text-gradient-brand">0{i + 1}</span>
-                      <h3 className="font-display font-bold">{m.module}</h3>
+                    <div className="flex items-start gap-3">
+                      <span className="font-display text-lg font-bold text-gradient-brand shrink-0">0{i + 1}</span>
+                      <h3 className="font-display font-bold min-w-0 break-words">{m.module}</h3>
                     </div>
                     <ul className="mt-3 grid gap-1 text-sm text-muted-foreground sm:grid-cols-2">
                       {m.topics.map((t) => (
-                        <li key={t} className="flex items-center gap-1.5">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-brand-cyan" /> {t}
+                        <li key={t} className="flex items-start gap-1.5">
+                          <CheckCircle2 className="h-3.5 w-3.5 mt-1 shrink-0 text-brand-cyan" />
+                          <span className="min-w-0 break-words">{t}</span>
                         </li>
                       ))}
                     </ul>
