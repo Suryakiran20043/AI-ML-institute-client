@@ -9,7 +9,15 @@ import { useEffect, useRef } from "react";
  * - Rendered on a canvas positioned to the right of the hero at 10–15% opacity.
  * - Pauses off-screen / hidden tab / prefers-reduced-motion.
  */
-export function HeroBrainSphere() {
+export function HeroBrainSphere({
+  side = "right",
+  direction = 1,
+  wireframe = false,
+}: {
+  side?: "left" | "right";
+  direction?: 1 | -1;
+  wireframe?: boolean;
+} = {}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
