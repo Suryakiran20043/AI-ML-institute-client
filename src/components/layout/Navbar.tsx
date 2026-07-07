@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -18,11 +18,13 @@ const NAV = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const reduceMotion = useReducedMotion();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const lastYRef = useRef(0);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
@@ -33,11 +35,29 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    lastYRef.current = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 20);
+        const delta = y - lastYRef.current;
+        // Hide when scrolling down past a threshold; show on scroll up.
+        // Never hide while the mobile menu is open.
+        if (!open) {
+          if (delta > 6 && y > 120) setHidden(true);
+          else if (delta < -4) setHidden(false);
+        }
+        lastYRef.current = y;
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [open]);
 
   // On mobile, hide the navbar entirely on non-home pages.
   if (isMobile && !isHome) return null;
@@ -45,14 +65,21 @@ export function Navbar() {
   // On mobile home page, navbar is static (scrolls away with page).
   // On desktop (any page), navbar stays fixed at the top.
   const mobileHomeStatic = isMobile && isHome;
+  const shouldSlide = !mobileHomeStatic && !open;
 
   return (
-    <header
+    <motion.header
+      animate={
+        reduceMotion || !shouldSlide
+          ? { y: 0, opacity: 1 }
+          : { y: hidden ? -120 : 0, opacity: hidden ? 0.6 : 1 }
+      }
+      transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "inset-x-0 top-0 z-50 pointer-events-none",
         mobileHomeStatic ? "absolute" : "fixed",
       )}
-      style={{ transform: "translateZ(0)" }}
+      style={{ transform: "translateZ(0)", willChange: "transform, opacity" }}
     >
 
       <div
@@ -284,6 +311,6 @@ export function Navbar() {
         </AnimatePresence>
 
       </div>
-    </header>
+    </motion.header>
   );
 }
