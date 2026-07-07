@@ -19,6 +19,19 @@ export function HeroNeuralBg() {
   const meshRef = useRef<HTMLDivElement>(null);
   const iconsRef = useRef<HTMLDivElement>(null);
 
+  const DIGITAL_DUST = useMemo<Dust[]>(() => {
+    const anims = ["animate-float-a", "animate-float-b", "animate-float-c"];
+    const chars = ["0", "1", "0", "1", "10", "01", "//"];
+    return Array.from({ length: 42 }).map((_, i) => ({
+      top: `${(i * 37) % 96}%`,
+      left: `${(i * 53) % 98}%`,
+      delay: (i % 8) * 0.6,
+      char: chars[i % chars.length],
+      anim: anims[i % anims.length],
+    }));
+  }, []);
+
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const wrap = wrapRef.current;
