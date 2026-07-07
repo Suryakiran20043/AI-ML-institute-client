@@ -418,6 +418,36 @@ export function HeroNeuralBg() {
         }}
       />
 
+      {/* Volumetric light rays */}
+      <div
+        className="absolute inset-0 opacity-40 mix-blend-screen animate-hero-rays"
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 30%, rgba(34,211,238,0.10) 42%, transparent 55%), linear-gradient(65deg, transparent 40%, rgba(139,92,246,0.09) 52%, transparent 66%), linear-gradient(95deg, transparent 55%, rgba(147,197,253,0.07) 65%, transparent 78%)",
+          filter: "blur(6px)",
+          willChange: "transform, opacity",
+        }}
+      />
+
+      {/* Digital dust / binary particles */}
+      <div className="absolute inset-0 hidden md:block opacity-40">
+        {DIGITAL_DUST.map((d, i) => (
+          <span
+            key={i}
+            className={`absolute text-[9px] font-mono text-cyan-200/50 ${d.anim}`}
+            style={{
+              top: d.top,
+              left: d.left,
+              animationDelay: `${d.delay}s`,
+              willChange: "transform, opacity",
+            }}
+          >
+            {d.char}
+          </span>
+        ))}
+      </div>
+
+
       {/* Neural network canvas */}
       <canvas
         ref={canvasRef}
