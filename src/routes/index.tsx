@@ -256,27 +256,47 @@ function WhySection() {
           title={<>AI isn't magic — <span className="text-gradient-brand">the first step is clarity.</span></>}
           description="We built GeekX United because complex AI can be taught simply when the teacher has actually done the work."
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mt-14 grid gap-px overflow-hidden rounded-3xl border border-border bg-border/60 sm:grid-cols-2">
           {WHY.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group relative"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group relative overflow-hidden bg-card p-8 sm:p-10"
             >
-              <TiltCard className="premium-card relative rounded-2xl">
-                <span aria-hidden className="premium-card-ring opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative z-[2] rounded-2xl border border-border bg-card p-6 shadow-card transition-shadow duration-300 group-hover:shadow-glow">
-                  <span aria-hidden className="premium-card-spotlight opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="relative mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow animate-icon-float">
-                    <item.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <h3 className="relative font-display text-lg font-bold">{item.title}</h3>
-                  <p className="relative mt-2 text-sm text-muted-foreground">{item.desc}</p>
+              {/* Big index numeral */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-display text-[7rem] font-black leading-none text-transparent [background:linear-gradient(180deg,var(--tw-gradient-stops))] [-webkit-background-clip:text] bg-clip-text from-foreground/[0.06] to-transparent transition-all duration-500 group-hover:from-foreground/[0.12]"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* Hover glow */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(600px circle at var(--mx,50%) var(--my,0%), color-mix(in oklab, hsl(var(--primary)) 10%, transparent), transparent 60%)",
+                }}
+              />
+
+              <div className="relative flex items-start gap-5">
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-background/60 backdrop-blur transition-all duration-300 group-hover:border-transparent group-hover:bg-gradient-brand group-hover:shadow-glow">
+                  <item.icon className="h-5 w-5 text-foreground transition-colors duration-300 group-hover:text-white" />
                 </div>
-              </TiltCard>
+                <div className="flex-1">
+                  <h3 className="font-display text-xl font-bold tracking-tight">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                  <span
+                    aria-hidden
+                    className="mt-5 block h-px w-10 origin-left scale-x-100 bg-gradient-brand transition-transform duration-500 group-hover:scale-x-[6]"
+                  />
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
