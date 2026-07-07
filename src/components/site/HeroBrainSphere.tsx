@@ -338,7 +338,7 @@ export function HeroBrainSphere({
     side === "left"
       ? "left-[-10%] w-[58%] lg:w-[46%]"
       : "right-[-8%] w-[62%] lg:w-[52%]";
-  const opacityClass = wireframe ? "opacity-[0.12] lg:opacity-[0.14]" : "opacity-[0.22] lg:opacity-[0.26]";
+  const opacityClass = wireframe ? "opacity-[0.10] lg:opacity-[0.12]" : "opacity-[0.14] lg:opacity-[0.16]";
 
   return (
     <div
