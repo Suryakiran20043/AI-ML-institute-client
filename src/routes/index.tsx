@@ -400,13 +400,15 @@ function FlagshipCard({
         </ul>
       </div>
 
-      <Link
-        to="/programs/$slug"
-        params={{ slug }}
-        className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] pt-3.5 ${btn}`}
-      >
-        View Curriculum <ArrowRight className="h-4 w-4" />
-      </Link>
+        <Link
+          to="/programs/$slug"
+          params={{ slug }}
+          className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold text-white transition-transform hover:scale-[1.01] pt-3.5 ${btn}`}
+        >
+          View Curriculum <ArrowRight className="h-4 w-4" />
+        </Link>
+        </div>
+      </TiltCard>
     </motion.div>
   );
 }
