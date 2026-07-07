@@ -449,6 +449,12 @@ export function HeroNeuralBg() {
         <FloatingIcon className="top-[50%] right-[38%] animate-float-c" delay={3}>
           <GridIcon />
         </FloatingIcon>
+        <FloatingIcon className="top-[30%] left-[30%] animate-float-a" delay={2}>
+          <GradCapIcon />
+        </FloatingIcon>
+        <FloatingIcon className="top-[78%] left-[38%] animate-float-b" delay={4}>
+          <NodeIcon />
+        </FloatingIcon>
       </div>
     </div>
   );
