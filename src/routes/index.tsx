@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
+import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 
 import {
   Sparkles,
