@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -19,8 +19,18 @@ const NAV = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const reduceMotion = useReducedMotion();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const onChange = () => setIsMobile(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,11 +39,22 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // On mobile, hide the navbar entirely on non-home pages.
+  if (isMobile && !isHome) return null;
+
+  // On mobile home page, navbar is static (scrolls away with page).
+  // On desktop (any page), navbar stays fixed at the top.
+  const mobileHomeStatic = isMobile && isHome;
+
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 pointer-events-none"
+      className={cn(
+        "inset-x-0 top-0 z-50 pointer-events-none",
+        mobileHomeStatic ? "absolute" : "fixed",
+      )}
       style={{ transform: "translateZ(0)" }}
     >
+
       <div
         className={cn(
           "pointer-events-auto mx-auto w-[calc(100%-40px)] max-w-[1280px] md:w-[calc(100%-64px)]",
