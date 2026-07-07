@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin } from "lucide-react";
 import { PROGRAMS } from "@/lib/programs";
-import logoMark from "@/assets/geekx-mark.png.asset.json";
+const logoMark = { url: "/geekx-mark.png" };
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/geekxunited/";
 
