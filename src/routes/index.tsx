@@ -365,7 +365,7 @@ function FlagshipCard({
           </p>
         </div>
 
-        <div className="relative mx-auto flex h-[220px] w-[220px] shrink-0 items-center justify-center">
+        <div className="relative mx-auto flex aspect-square w-full max-w-[220px] shrink-0 items-center justify-center sm:h-[220px] sm:w-[220px]">
           <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${imageGlow} blur-2xl`} />
           <img
             src={image}
@@ -373,9 +373,10 @@ function FlagshipCard({
             loading="lazy"
             width={220}
             height={220}
-            className="relative h-[220px] w-[220px] rounded-2xl object-cover"
+            className="relative h-full w-full rounded-2xl object-cover"
           />
         </div>
+
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
