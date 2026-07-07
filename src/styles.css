@@ -322,3 +322,26 @@
   50%      { transform: translate3d(-2%, 1%, 0); opacity: 0.55; }
 }
 .animate-hero-rays { animation: hero-rays 22s ease-in-out infinite; }
+
+@keyframes beam-pulse {
+  0%, 100% { opacity: 0.55; transform: scaleY(1); }
+  50%      { opacity: 0.9;  transform: scaleY(1.03); }
+}
+.animate-beam-pulse { animation: beam-pulse 4s ease-in-out infinite; transform-origin: 50% 100%; }
+
+@keyframes ring-expand {
+  0%   { transform: translateX(-50%) scale(0.6); opacity: 0; }
+  30%  { opacity: 0.9; }
+  100% { transform: translateX(-50%) scale(1.15); opacity: 0; }
+}
+.animate-ring-a { animation: ring-expand 3.4s ease-out infinite; }
+.animate-ring-b { animation: ring-expand 3.4s ease-out infinite 1.1s; }
+.animate-ring-c { animation: ring-expand 3.4s ease-out infinite 2.2s; }
+
+@keyframes ai-flicker {
+  0%, 100% { opacity: 0.55; }
+  45%      { opacity: 0.85; }
+  47%      { opacity: 0.35; }
+  50%      { opacity: 0.8; }
+}
+.animate-ai-flicker { animation: ai-flicker 6s ease-in-out infinite; }

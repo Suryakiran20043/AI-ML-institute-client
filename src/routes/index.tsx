@@ -6,6 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 import { HeroNeuralBg } from "@/components/site/HeroNeuralBg";
 import { HeroBrainSphere } from "@/components/site/HeroBrainSphere";
+import { HeroLeftBeam } from "@/components/site/HeroLeftBeam";
 import { Magnetic, TiltCard } from "@/components/site/PremiumHover";
 
 import {
@@ -160,8 +161,10 @@ function Hero() {
       />
       {/* Canvas neural network + aurora + digital wave */}
       <HeroNeuralBg />
+      <HeroLeftBeam />
       <HeroBrainSphere side="left" direction={1} />
       <HeroBrainSphere side="right" direction={-1} wireframe />
+
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,transparent,oklch(0.22_0.05_260)_70%)]" />
 
 
