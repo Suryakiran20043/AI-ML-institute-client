@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
+const logoFull = { url: "/geekx-logo-transparent.png" };
 
 // Minimum time the splash stays visible, in ms.
 const MIN_VISIBLE_MS = 3000;
