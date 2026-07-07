@@ -5,6 +5,7 @@ import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
 import { MobileScrollFade } from "@/components/site/MobileScrollFade";
 import { HeroNeuralBg } from "@/components/site/HeroNeuralBg";
+import { Magnetic, TiltCard } from "@/components/site/PremiumHover";
 
 import {
   Sparkles,
