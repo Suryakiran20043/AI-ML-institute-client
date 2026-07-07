@@ -380,39 +380,17 @@ function FlagshipCard({
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
-        {features.map(({ icon: Icon, label }, i) => {
-          const badgeBg = isPurple
-            ? "bg-gradient-to-br from-brand-purple/20 to-fuchsia-500/10 ring-brand-purple/25"
-            : "bg-gradient-to-br from-brand-cyan/20 to-sky-400/10 ring-brand-cyan/25";
-          return (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.06, ease: "easeOut" }}
-              whileHover={{ y: -3 }}
-              className="group/chip relative flex flex-col items-start gap-2 overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-3.5 backdrop-blur-sm transition-all duration-300 hover:border-transparent hover:shadow-[0_10px_30px_-12px_rgba(15,23,42,0.18)]"
-            >
-              <span
-                aria-hidden
-                className={`pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/chip:opacity-100 ${
-                  isPurple
-                    ? "bg-gradient-to-br from-brand-purple/8 via-transparent to-fuchsia-500/6"
-                    : "bg-gradient-to-br from-brand-cyan/8 via-transparent to-sky-400/6"
-                }`}
-              />
-              <span
-                className={`relative inline-flex h-9 w-9 items-center justify-center rounded-xl ring-1 ${badgeBg}`}
-              >
-                <Icon className={`h-4 w-4 ${chipIcon}`} />
-              </span>
-              <span className="relative text-[0.78rem] font-semibold leading-snug tracking-tight text-foreground/90">
-                {label}
-              </span>
-            </motion.div>
-          );
-        })}
+        {features.map(({ icon: Icon, label }) => (
+          <div
+            key={label}
+            className="flex items-center gap-2.5 rounded-xl border border-border bg-muted/40 px-3 py-2.5"
+          >
+            <Icon className={`h-4 w-4 shrink-0 ${chipIcon}`} />
+            <span className="text-xs font-medium leading-tight text-foreground/80">
+              {label}
+            </span>
+          </div>
+        ))}
       </div>
 
       <div className="mt-6 mb-8">
