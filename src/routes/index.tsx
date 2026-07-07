@@ -160,8 +160,10 @@ function Hero() {
       />
       {/* Canvas neural network + aurora + digital wave */}
       <HeroNeuralBg />
-      <HeroBrainSphere />
+      <HeroBrainSphere side="left" direction={1} />
+      <HeroBrainSphere side="right" direction={-1} wireframe />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,transparent,oklch(0.22_0.05_260)_70%)]" />
+
 
 
       <div className="container-page relative section-y pt-[100px] md:pt-[100px]">
