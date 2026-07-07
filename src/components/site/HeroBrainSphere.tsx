@@ -334,11 +334,17 @@ export function HeroBrainSphere({
     };
   }, []);
 
+  const posClass =
+    side === "left"
+      ? "left-[-10%] w-[58%] lg:w-[46%]"
+      : "right-[-8%] w-[62%] lg:w-[52%]";
+  const opacityClass = wireframe ? "opacity-[0.10] lg:opacity-[0.12]" : "opacity-[0.14] lg:opacity-[0.16]";
+
   return (
     <div
       ref={wrapRef}
       aria-hidden
-      className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 hidden md:block h-[110%] w-[62%] lg:w-[52%] opacity-[0.14] lg:opacity-[0.15]"
+      className={`pointer-events-none absolute top-1/2 -translate-y-1/2 hidden md:block h-[110%] ${posClass} ${opacityClass}`}
       style={{ mixBlendMode: "screen" }}
     >
       <canvas
