@@ -103,6 +103,20 @@ export function SplashIntro() {
               />
             </motion.span>
           </motion.div>
+
+          {/* Skip intro */}
+          <motion.button
+            type="button"
+            onClick={() => setVisible(false)}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.8 }}
+            className="absolute bottom-8 right-6 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-medium text-slate-600 shadow-sm backdrop-blur transition hover:border-slate-300 hover:text-slate-900 md:bottom-10 md:right-10 md:text-sm"
+            aria-label="Skip intro animation"
+          >
+            Skip intro
+            <span aria-hidden>→</span>
+          </motion.button>
         </motion.div>
       )}
     </AnimatePresence>
