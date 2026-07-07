@@ -9,7 +9,7 @@ const logoFull = { url: "/geekx-logo-transparent.png" };
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/programs", label: "Advanced certification in Gen AI & Agentic AI Programs" },
+  { to: "/programs", label: "Gen AI course" },
   { to: "/about", label: "About" },
   { to: "/success-stories", label: "Success Stories" },
   { to: "/community", label: "Community" },
