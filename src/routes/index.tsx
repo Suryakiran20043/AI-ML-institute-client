@@ -176,19 +176,19 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
             Where Tech Minds Unite
           </span>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="mt-6 font-display text-[32px] xs:text-[36px] sm:text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
             Learn AI the practical way.
             <br />
             <span className="text-gradient-brand">Build a future-ready career.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-navy-foreground/75 md:text-lg">
+          <p className="mx-auto mt-6 w-[90%] max-w-[340px] text-base text-navy-foreground/75 sm:max-w-2xl md:text-lg">
             GeekX United trains you in AI, GenAI, and AI&amp;ML through clarity-first curriculum,
             hands-on projects, and mentors who've shipped real systems in production.
           </p>
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-3">
             <Magnetic>
-              <Button asChild variant="gradient" size="xl">
-                <Link to="/programs">Explore Gen AI Agent Engineer Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
+              <Button asChild variant="gradient" size="xl" className="w-full max-w-[320px] sm:w-auto">
+                <Link to="/programs" className="text-center">Explore Programs <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
             </Magnetic>
             <Magnetic>
@@ -196,12 +196,13 @@ function Hero() {
                 asChild
                 size="xl"
                 variant="outline"
-                className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+                className="w-full max-w-[320px] sm:w-auto border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white"
               >
                 <Link to="/contact">Book Free Consultation</Link>
               </Button>
             </Magnetic>
           </div>
+
 
           {/* Animated stat counters */}
           <div className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6">
