@@ -2,34 +2,49 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import logoFull from "@/assets/geekx-logo-transparent.png.asset.json";
 
-const SESSION_KEY = "geekx-splash-shown";
+// Minimum time the splash stays visible, in ms.
+const MIN_VISIBLE_MS = 3000;
 
 export function SplashIntro() {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      return !sessionStorage.getItem(SESSION_KEY);
-    } catch {
-      return true;
-    }
-  });
+  // Always start visible on the client so the intro plays on every full load.
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(true);
+
+  // Avoid SSR/CSR mismatch: only render after client mount.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    if (!visible) return;
-    try {
-      sessionStorage.setItem(SESSION_KEY, "1");
-    } catch {
-      // ignore
-    }
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const t = window.setTimeout(() => setVisible(false), 2200);
-    return () => {
-      window.clearTimeout(t);
-      document.body.style.overflow = prev;
-    };
-  }, [visible]);
+    if (!mounted) return;
 
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const start = performance.now();
+
+    const finish = () => {
+      const elapsed = performance.now() - start;
+      const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
+      window.setTimeout(() => setVisible(false), remaining);
+    };
+
+    // Wait until the window (and images/fonts it can) has loaded, then honor
+    // the minimum visible duration so the intro never gets cut off early.
+    if (document.readyState === "complete") {
+      finish();
+    } else {
+      window.addEventListener("load", finish, { once: true });
+      // Safety net in case `load` never fires (slow third‑party asset, etc.).
+      window.setTimeout(finish, MIN_VISIBLE_MS + 500);
+    }
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -39,11 +54,12 @@ export function SplashIntro() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
           onAnimationComplete={() => {
             if (!visible) document.body.style.overflow = "";
           }}
         >
+
           {/* Soft rounded card behind logo (Klyzen-style) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
